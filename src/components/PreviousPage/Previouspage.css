@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Hero {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.Hero-grid {
+    width: 90%;
+    min-height: 80vh;
+    /* background-color: orange; */
+    margin: 6.25rem;
+    position: absolute;
+    align-content: center;
+}
+
+.Hero-grid-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.Hero-column--left {
+    grid-column: 1;
+}
+
+
+.Hero-grid-img {
+    width: 170%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+}
+
+
+.Hero-column--right {
+    grid-column: 2;
+    z-index: 1;
+    /* background: linear-gradient(to left) black; */
+    background-color: black;
+    align-content: center;
+}
+
+.Hero-column-info {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+    color: white;
+    margin-left: 1.875rem;
+}
+
+.Hero-grid-h1 {
+    font-size: 2.8125rem;
+}
+
+.Hero-column-p {
+    font-size: 1.125rem;
+}
+
+.Hero-buttons {
+
+    display: flex;
+    flex-flow: column nowrap;
+    width: 60%;
+    gap: 2.5rem;
+
+}
+
+.Hero-button:hover {
+    scale: 1.1;
+    background-color: rgba(255, 255, 255, 0.924);
+    filter: opacity(0.5);
+    transition: scale 1s ease;
+    cursor: pointer;
+}
+
+
+
+.Hero-button--login {
+    min-height: 3.125rem;
+    border-radius: .625rem;
+    border: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.Hero-button--subscription {
+    min-height: 3.125rem;
+    border-radius: .625rem;
+    border: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+
+
+.Hero-span {
+    font-size: .875rem;
+}
+
+.Hero-student-link {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/* HERO MINI GRID */
+.Heromini-grid {
+    background-color: black;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+
+}
+
+.Heromini-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Heromini-column--left {
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+    padding: 3.125rem;
+
+}
+
+.Heromini-h2 {
+    font-size: 3.125rem;
+}
+
+.Heromini-p {
+    font-size: 1.25rem;
+}
+
+.Heromini-button {
+    width: 18.75rem;
+    min-height: 3.125rem;
+    border-radius: .625rem;
+    border: transparent;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+
+
+
+
+.Heromini-button:hover {
+     width: 18.75rem;
+    min-height: 3.125rem;
+    border-radius: .625rem;
+    border: transparent;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transform: scale(1.1);
+   transition: scale .5s ease-in;
+}
+
+.Heromini-column--right {
+    display: grid;
+}
+
+.Heromini-grid-images {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .625rem;
+
+} 
+
+.Heromini-img {
+    width: 90%;
+    border-radius: .625rem;
+   
+}
+
+.Heromini-img-single {
+    width: 100%;
+
+}
+
+/* HERO BENEFITS */
+
+.Herobenefits {
+    background-color: black;
+    width: 100%;
+    min-height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 3.75rem;
+}
+
+.Herobenefits-container {
+    /* background-color: red; */
+    width: 80%;
+    margin: auto;
+
+}
+
+.Herobenefits-info {
+    display: flex;
+    flex-flow: column nowrap;
+    color: white;
+    gap: 2.5rem;
+    align-items: center;
+
+}
+
+.Herobenefits-h3 {
+    font-size: 1.875rem;
+}
+
+.Herobenefits-img {
+    width: 70%;
+}

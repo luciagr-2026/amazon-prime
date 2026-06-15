@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.Hero-carousel {
+    width: 100%;
+    min-height: 20vh;
+    /* background-color: #f13772; */
+    margin: 20px 0 20px 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.Hero-carousel-h3 {
+
+    text-align: start;
+    margin-left: .625rem;
+    color: white;
+    margin-bottom: .9375rem;
+}
+
+.Hero-carousel-wrapper {
+    width: 3100%;
+    min-height: 15vh;
+    /* background-color: orange; */
+
+    display: grid;
+    grid-template-columns: repeat(31, 15.625rem);
+    gap: 1.25rem;
+    position: relative;
+    transition:  transform 0.4s ease;
+
+
+}
+
+.Hero-film-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-color: #37f1a3; */
+}
+
+.Hero-film-img.Scale{
+   transform: scale(1.1);
+}
+
+.Hero-buttons{
+    
+    position: absolute;
+    /* background-color: orange; */
+
+    display: flex;
+    
+    width: 62.4rem;
+    justify-content: space-between;
+    top: 40%;
+}
+ 
+ .Button-next{
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+
+ }
+
+ .Button-prev{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+
+ }
+

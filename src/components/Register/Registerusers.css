@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Register-page{
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Register-logo{
+    width: 9%;
+}
+
+.Register-block{
+    border: .0625rem solid lightgray;
+    border-radius: .625rem;
+    width: 18.75rem;
+    min-height: 31.25rem;
+    padding: .625rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+    margin-top: 1.25rem;
+    gap: .625rem;
+}
+
+.Register-h1{
+    font-size: 1.5625rem;
+    font-weight: 100;
+}
+
+.Register-form{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+
+}
+
+.Register-form::after{
+   content: "";
+   width: 276px;
+   min-height: 2px;
+   background-color: lightgray;
+}
+
+label{
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: .875rem;
+    font-weight: 600;
+}
+
+input{
+    width: 90%;
+    border-radius: .5rem;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+.Register-number{
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center;
+   gap: 1.25rem;
+}
+
+
+.Form-select {
+    width: 70px;
+    height: 1.5625rem;
+    border-radius: .5rem;
+    color: black;
+}
+
+.Register-email-link{
+    display: flex;
+}
+
+.Register-email-icon{
+    width: 4%;
+}
+
+.Register-span-email{
+    font-size: .75rem;
+    color: rgb(69, 115, 209);
+}
+
+.Register-password-span{
+    display: flex;
+    align-items: start;
+    gap: .4375rem;
+}
+
+.Register-info-icon{
+   width: 7%;
+}
+
+.Register-password-info{
+    font-size: .75rem;
+}
+
+.Register-p{
+    font-size: .875rem;
+}
+
+.Register-button{
+    border-radius: 1.25rem;
+    border: none;
+    min-height: 1.75rem;
+    background-color: #ffd814;
+    cursor: pointer;
+}
+
+.Register-login-span{
+font-size: .875rem;
+}
+
+.Register-login-link{
+    color: blue;
+    font-size: .875rem;
+}
+a{
+    color: blue;
+}

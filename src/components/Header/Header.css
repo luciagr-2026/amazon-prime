@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.Header{
+    position: fixed;
+    top: 0;
+    left: 5%;
+    width: 95%;
+    min-height: 8vh;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 0, .15);
+    color: white;
+    z-index: 1;
+   
+
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: center;
+}
+
+
+.Header-a{
+    color: white;
+    text-decoration: none;
+}
+
+.Header-left{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .625rem;
+    margin-left: 1.25rem;
+}
+
+.Header-ul{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .625rem;
+
+}
+
+.Header-subs-icon{
+    width: 17%;
+}
+
+.Header-li:nth-child(7){
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .3125rem;
+}
+
+
+.Header-icons{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .625rem;
+}
+
+.Header-icon-logo{
+    width: 10%;
+}
+
+
+.Header-login-icon{
+    width: 26%;
+}
+
