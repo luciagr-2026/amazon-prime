@@ -13,11 +13,15 @@ export const LoginPassword = () => {
 
 
     const navigate = useNavigate()
+    const { VITE_EXPRESS } = import.meta.env
+
     const [openHelp, setOpenHelp] = useState(false)
     const [remember, setRemember] = useState(false)
 
     const location = useLocation()
-    const email = location.state?.email;
+    const email = location.state?.email; // State : Permite enviar datos entre páginas. 
+
+
     const [password, setPassword] = useState('')
 
 
@@ -27,19 +31,22 @@ export const LoginPassword = () => {
 
         try {
 
+            let options = 
+
+            {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+
             const response = await fetch(
-                "http://localhost:3000/users/login/password",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        password: password
-                    })
-                }
-            )
+                `${VITE_EXPRESS}/login/password`, options
+                 )
 
 
             const data = await response.json()
@@ -48,15 +55,17 @@ export const LoginPassword = () => {
 
 
 
-            if (!response.ok) {
-                console.log("Login failed")
-                return
+            if (data.user === 'true') {
+                navigate("/Introcarousel")
+                localStorage.setItem('user', JSON.stringify({ email, password: true }))
+            } else {
+                navigate("/LoginUsers")
+                console.log("Login incorrect")
             }
 
-            navigate("/Introcarousel")
+        }
 
-
-        } catch (error) {
+        catch (error) {
 
             console.log(error)
 

@@ -8,6 +8,8 @@ export const LoginUsers = () => {
 
     const navigate = useNavigate()
 
+    const { VITE_EXPRESS } = import.meta.env
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -23,45 +25,47 @@ export const LoginUsers = () => {
 
 
     async function verifyEmail(e) {
+        
         e.preventDefault()
 
         try {
 
-            const response = await fetch("http://localhost:3000/users/login/email",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        email: email
-                    })
-                }
-            )
+            let options =
+            {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            }
+
+            const response = await fetch(`${VITE_EXPRESS}/login/email`, options)
+
 
             const data = await response.json()
 
-            if(data.user){
-                navigate("/LoginPasswordPage", {state: {email}})
+            console.log( data.user )
+
+            if (data.user === 'true') {
+                navigate("/LoginPasswordPage", { state: { email} })
+                localStorage.setItem('user', JSON.stringify({ email: true }))
+                console.log("Login correct")
+            } else {
+                navigate("/LoginUsers")
+                console.log("Try a new email")
             }
-    
-
-
 
         } catch (error) {
 
-            setError(
-                "The email doesn't exist, try a new one"
-            )
+            console.log(error)
 
         }
 
     }
 
 
-  
-    
-    
 
 
     return (
@@ -80,7 +84,7 @@ export const LoginUsers = () => {
 
                 />
 
-                
+
             </>
 
         </LoginUsersContext.Provider>
@@ -108,23 +112,23 @@ const LoginEmail = ({ email, setEmail, verifyEmail }) => {
                     <h1 className="Login-h1"> Iniciar sesión </h1>
                     <div className="Login-span"> Introduce el número de teléfono móvil o el correo electrónico</div>
 
-                  
-                        <input
-                            type="email"
-                            name="user-email"
-                            className="Login-email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
 
-                        <button
-                            type="submit"
-                            className="Login-button Login-button--continue"
-                        >
-                            Continuar
-                        </button>
+                    <input
+                        type="email"
+                        name="user-email"
+                        className="Login-email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                   
+                    <button
+                        type="submit"
+                        className="Login-button Login-button--continue"
+                    >
+                        Continuar
+                    </button>
+
+
                     <div className="Login-p">
                         Al continuar, aceptas las <a href="#" className="Login-conditions">Condiciones de uso</a> de Amazon. Consulta
                         <a href="#" className="Login-privacy"> Aviso de privacidad, Aviso de cookies y Anuncios por intereses</a>

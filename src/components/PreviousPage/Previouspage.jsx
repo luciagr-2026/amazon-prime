@@ -98,6 +98,7 @@ const HeroMaingrid = ({ goToLogin }) => {
                     <img src="/GridImgs.jpg" alt="films img" className='Hero-grid-img' />
                 </div>
                 <div className="Hero-column Hero-column--right">
+                    
                     <div className="Hero-column-info">
                         <h1 className="Hero-grid-h1"> Ve películas y series </h1>
                         <p className="Hero-column-p">
@@ -106,16 +107,10 @@ const HeroMaingrid = ({ goToLogin }) => {
                             incluye la entrega rápida y gratis de millones de productos y más.
                         </p>
 
-                        <div className="Hero-buttons">
-                            <button className="Hero-button Hero-button--login" onClick={goToLogin}> ¿Eres cliente Amazon Prime? Identifícate </button>
-                            <button className="Hero-button Hero-button--subscription" onClick={goToLogin}> Empieza tu periodo de prueba de 30 días gratis*</button>
-                        </div>
 
-                        <div className="Hero-span">
-                            *€ 49,90/año o € 4,99/mes una vez que finalice el periodo de prueba gratis.
-                            <a href="https://www.amazon.es/amazonprime?_encoding=UTF8&primeCampaignId=studentWlpPrimeRedir&ref=dvm_es_gc_mlp_st_unreclink" className="Hero-student-link">¿Eres estudiante?</a>
-                        </div>
                     </div>
+
+
                 </div>
 
             </div>
@@ -135,7 +130,7 @@ const Herominigrid = ({ heroMiniGrid }) => {
                         <p className="Heromini-p">{hero.description}</p>
 
                         {hero.button && (
-                            <button className="Heromini-button"> {hero.button}</button>
+                            <button className="Hero-mini-button"> {hero.button}</button>
                         )}
                     </div>
 

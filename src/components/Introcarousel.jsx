@@ -1,7 +1,8 @@
 import { HeroCarousel } from './HeroCarousel/HeroCarousel'
 import './Introcarousel.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Header} from './Header/Header'
+import { useNavigate } from 'react-router-dom'
 
 export const Introcarousel = () => {
 
@@ -73,6 +74,20 @@ export const Introcarousel = () => {
                 : current - 1
         )
     }
+
+    const navigate = useNavigate()
+
+    const buscar = JSON.parse(localStorage.getItem('user'))
+
+    useEffect(()=> {
+
+
+    if( buscar.password){
+        navigate("/Introcarousel")
+    }else{
+        navigate("/LoginPasswordPage")
+    }
+ }, [navigate])
 
     return (
       <>
