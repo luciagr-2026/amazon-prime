@@ -13,123 +13,126 @@ body {
 .Intro-carousel {
 
     width: 100%;
-    min-height: 40vh;
+    min-height: 20vh;
     background-color: red;
     position: relative;
+     display: grid;
 
     overflow: hidden;
 
+}
 
-    .Intro-carousel-wrapper {
-        width: 300%;
-        min-height: 40vh;
-        background-color: aqua;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        transition: translate 0.5s ease;
-    }
+.Intro-carousel-wrapper {
+    width: 300%;
+    min-height: 20vh;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transition: transform 0.5s ease;
+}
 
-    .Intro-carousel-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* background-color: orange; */
 
-        position: relative;
-    }
+.Intro-carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-color: orange; */
 
-    .Intro-buttons {
-        position: absolute;
-        top: 20%;
-        left: 5%;
-        display: flex;
-        gap: 1.25rem;
-    }
+   
+}
 
-    .Intro-carousel-info {
+.Intro-buttons {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.Intro-carousel-info {
     display: none;
-    }
+}
 
-    .Intro-carousel-info.isActive {
-        width: 6.25rem;
-        color: white;
-        position: absolute;
-        top: 18%;
-        left: 2%;
-        display: block;
+.Intro-carousel-info.isActive {
+    width: 6.25rem;
+    color: white;
+    position: absolute;
+    top: 18%;
+    left: 2%;
+    display: block;
 
 
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: start;
-        align-items: start;
-        gap: 1.25rem;
-    }
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+    gap: 1.25rem;
+}
 
-    .Intro-carousel-span {
-        display: flex;
-        gap: .625rem;
-    }
+.Intro-carousel-span {
+    display: flex;
+    gap: .625rem;
+}
 
-    .Intro-carousel-span-text {
-        font-size: .9375rem;
-        color: #37f1a3;
-    }
+.Intro-carousel-span-text {
+    font-size: .9375rem;
+    color: #37f1a3;
+}
 
-    .Intro-buttons {
-        width: 90%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        gap: .9375rem;
-        margin: 110px auto;
-    }
+.Intro-buttons {
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: .9375rem;
+    margin: 110px auto;
+}
 
-    .Button-next{
-        background-color: transparent;
-        border: none;
-    }
+.Button-next {
+    background-color: transparent;
+    border: none;
+}
 
-    .Button-prev{
-        background-color: transparent;
-        border: none;
-    }
+.Button-prev {
+    background-color: transparent;
+    border: none;
+}
 
-    .Intro-description {
-        display: none;
-    }
+.Intro-description {
+    display: none;
+}
 
-    .Intro-description.isActive{
-        display: block;
-    }
+.Intro-description.isActive {
+    display: block;
+}
 
-    .Intro-platform-logo {
-        width: 60%;
-    }
+.Intro-platform-logo {
+    width: 60%;
+}
 
-    .Intro-film-logo {
-        width: 500px;
-    }
+.Intro-film-logo {
+    width: 500px;
+}
 
-    .Intro-carousel-buttons {
-        display: flex;
-        flex-flow: row nowrap;
-        gap: .625rem;
-    }
+.Intro-carousel-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .625rem;
+}
 
-    .Intro-button--add {
-        border-radius: 1.25rem;
-    }
+.Intro-button--add {
+    border-radius: 1.25rem;
+}
 
-    .Intro-a-info{
+.Intro-a-info {
     background-color: rgb(137, 135, 135);
     border-radius: 1.25rem;
     width: 1.875rem;
     color: white;
-    }
+}
 
 
-    /* El carousel Hero empieza aqui 
+/* El carousel Hero empieza aqui 
 
     .Hero-carousel{
         width: 90%;
@@ -140,7 +143,7 @@ body {
 
     .Hero-carousel-h3{
         /* background-color: red; */
-        /* text-align: start;
+/* text-align: start;
         margin-left: .625rem;
         color: white;
     }
@@ -159,6 +162,6 @@ body {
         height: 100%;
         object-fit: cover;
         background-color: #37f1a3;
-    } */ 
+    } */
 
 }

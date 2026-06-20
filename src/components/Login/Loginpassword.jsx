@@ -55,7 +55,7 @@ export const LoginPassword = () => {
 
 
 
-            if (data.user === 'true') {
+            if (data.user) {
                 navigate("/Introcarousel")
                 localStorage.setItem('user', JSON.stringify({ email, password: true }))
             } else {

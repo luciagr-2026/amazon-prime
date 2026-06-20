@@ -1,0 +1,61 @@
+/* Aquí comienza el footer de la página Login */
+
+
+.Footer-dark{
+    width: 100%;
+    min-height: 15vh;
+    text-align: center;
+    background-color: #222222;
+    color: rgb(129, 151, 164);
+}
+
+.Footer-links{
+    text-decoration: none;
+}
+
+.Footer-links{
+    color: lightblue;
+    text-decoration: none;
+    filter:brightness(5);
+}
+
+.Footer-logo{
+    width: 6%;
+}
+
+
+.Login-h1-password {
+    font-size: .9375rem;
+    font-weight: 500;
+}
+
+
+.Login-footer-password {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: .625rem;
+}
+
+.Login-terms {
+    display: flex;
+    font-size: .75rem;
+    gap: 2.5rem;
+    color: #0a7cd1;
+}
+
+.Login-terms-a {
+    font-size: .75rem;
+    color: #0a7cd1;
+}
+
+.Login-terms-a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.Login-footer-span {
+    font-size: .75rem;
+    color: rgb(102, 95, 95);
+}
