@@ -9,6 +9,73 @@ body {
     /* font-family: 'Amazon Ember', 'Amazon Arabic Ember', Arial, sans-serif !important; buscar */
 }
 
+.Search-bar-container{
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    z-index: 1;
+    background-color: rgba(25,30,37,.8);
+    width: 70%;
+    min-height: 6.25rem;
+    border-radius: .75rem;
+    padding: 1rem;
+    backdrop-filter: blur(16px);
+    align-content: center;
+   
+}
+
+.Search-bar-wrapper{
+    
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.Search-icon {
+    position: absolute;
+    left: 3%;
+    z-index: 2;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+#Search-bar{
+    position: absolute;
+    background-color: #33373d;
+    color: white;
+    width: 95%;
+    min-height: 3.125rem;
+    padding-left: 3.125rem;
+}
+
+.Search-reset-button{
+position: absolute;
+width: 5rem;
+min-height: 2.5rem;
+padding: .5rem;
+border-radius: .625rem;
+background-color: transparent;
+color: white;
+right: 5%;
+}
+
+
+.Search-reset-button:hover{
+position: absolute;
+width: 5rem;
+min-height: 2.5rem;
+padding: .5rem;
+border-radius: .625rem;
+background-color: white;
+color: black;
+right: 5%;
+
+}
+
+
+
 
 .Intro-carousel {
 

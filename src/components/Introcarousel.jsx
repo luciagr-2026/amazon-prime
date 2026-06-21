@@ -1,7 +1,7 @@
 import { HeroCarousel } from './HeroCarousel/HeroCarousel'
 import './Introcarousel.css'
 import { useEffect, useState } from 'react'
-import {Header} from './Header/Header'
+import { Header } from './Header/Header'
 import { Footer } from './Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 
@@ -53,13 +53,15 @@ export const Introcarousel = () => {
         }
     ]
 
-   // const [info , setInfo] = useState(0)
+    const [info, setInfo] = useState(0)
 
-    const changeInfo = (valor) => {
-        setImg(valor)
-    } 
 
     const [imagen, setImg] = useState(0)
+
+    const changeInfo = (index) => {
+
+        setImg(index)
+    }
 
     const nextImg = () => {
         setImg(current =>
@@ -81,17 +83,19 @@ export const Introcarousel = () => {
 
     const buscar = JSON.parse(localStorage.getItem('user')) || {}
 
-    useEffect(()=> {
+    useEffect(() => {
 
 
-    if(!buscar.password){
-        navigate("/LoginPasswordPage")
-    }
- }, [])
+        if (!buscar.password) {
+            navigate("/LoginPasswordPage")
+        }
+    }, [navigate, buscar.password])
 
     return (
-      <>
-             <Header />
+        <>
+            <Header />
+            <Searchbar />
+
             <div className="Intro-carousel">
 
                 <div
@@ -102,33 +106,36 @@ export const Introcarousel = () => {
                         transform: `translateX(calc((-100% / ${Imagenes.length}) * ${imagen}))`
                     }}
                 >
-                    {Imagenes.map(img => (
-                        <Imagen key={img._id} {...img} />
+                    {Imagenes.map((img, index) => (
+                        <div key={img._id}>
+                            <Imagen  {...img} />
+
+                            <Infocarousel {...infoCarousel[index]} current={imagen} />
+
+                        </div>
+
                     ))}
 
-                    {infoCarousel.map(info =>
-                        <Infocarousel key={info._id} {...info} current={imagen} changeInfo={changeInfo} /> 
 
-                    )}
 
-                    
+
                 </div>
 
                 <div className="Intro-buttons">
                     <button onClick={nextImg} className="Button-next">
-                    <svg className="fbl-icon _30dE3d _1a_Ljt" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><title>Back</title><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.578 3.099 C 15.424 3.176,14.455 4.124,11.255 7.329 C 7.474 11.115,7.124 11.476,7.065 11.657 C 6.983 11.906,6.983 12.094,7.065 12.343 C 7.124 12.524,7.474 12.885,11.255 16.671 C 14.023 19.443,15.433 20.827,15.540 20.879 C 15.790 21.000,15.999 21.018,16.265 20.940 C 16.581 20.849,16.844 20.590,16.936 20.283 C 17.016 20.013,17.016 19.949,16.937 19.677 C 16.875 19.466,16.775 19.362,13.147 15.730 L 9.421 12.000 13.129 8.290 C 16.006 5.411,16.855 4.540,16.917 4.400 C 17.022 4.168,17.025 3.799,16.925 3.578 C 16.834 3.377,16.518 3.094,16.325 3.041 C 16.070 2.970,15.793 2.992,15.578 3.099 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>
-                  </button>
+                        <svg className="fbl-icon _30dE3d _1a_Ljt" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><title>Back</title><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.578 3.099 C 15.424 3.176,14.455 4.124,11.255 7.329 C 7.474 11.115,7.124 11.476,7.065 11.657 C 6.983 11.906,6.983 12.094,7.065 12.343 C 7.124 12.524,7.474 12.885,11.255 16.671 C 14.023 19.443,15.433 20.827,15.540 20.879 C 15.790 21.000,15.999 21.018,16.265 20.940 C 16.581 20.849,16.844 20.590,16.936 20.283 C 17.016 20.013,17.016 19.949,16.937 19.677 C 16.875 19.466,16.775 19.362,13.147 15.730 L 9.421 12.000 13.129 8.290 C 16.006 5.411,16.855 4.540,16.917 4.400 C 17.022 4.168,17.025 3.799,16.925 3.578 C 16.834 3.377,16.518 3.094,16.325 3.041 C 16.070 2.970,15.793 2.992,15.578 3.099 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>
+                    </button>
                     <button onClick={prevImg} className="Button-prev">
-                  <svg className="fbl-icon _30dE3d _1a_Ljt" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.758 3.054 C 7.416 3.147,7.160 3.395,7.061 3.729 C 6.985 3.987,6.985 4.053,7.063 4.323 C 7.125 4.534,7.225 4.638,10.853 8.270 L 14.579 12.000 10.871 15.710 C 7.994 18.589,7.145 19.460,7.083 19.600 C 6.984 19.819,6.975 20.182,7.062 20.391 C 7.144 20.587,7.381 20.831,7.580 20.924 C 7.818 21.034,8.175 21.025,8.422 20.901 C 8.576 20.824,9.545 19.876,12.745 16.671 C 16.526 12.885,16.876 12.524,16.935 12.343 C 17.017 12.094,17.017 11.906,16.935 11.657 C 16.876 11.476,16.528 11.117,12.768 7.353 C 9.951 4.532,8.609 3.214,8.483 3.147 C 8.252 3.024,7.992 2.990,7.758 3.054 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>                     
+                        <svg className="fbl-icon _30dE3d _1a_Ljt" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.758 3.054 C 7.416 3.147,7.160 3.395,7.061 3.729 C 6.985 3.987,6.985 4.053,7.063 4.323 C 7.125 4.534,7.225 4.638,10.853 8.270 L 14.579 12.000 10.871 15.710 C 7.994 18.589,7.145 19.460,7.083 19.600 C 6.984 19.819,6.975 20.182,7.062 20.391 C 7.144 20.587,7.381 20.831,7.580 20.924 C 7.818 21.034,8.175 21.025,8.422 20.901 C 8.576 20.824,9.545 19.876,12.745 16.671 C 16.526 12.885,16.876 12.524,16.935 12.343 C 17.017 12.094,17.017 11.906,16.935 11.657 C 16.876 11.476,16.528 11.117,12.768 7.353 C 9.951 4.532,8.609 3.214,8.483 3.147 C 8.252 3.024,7.992 2.990,7.758 3.054 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>
                     </button>
                 </div>
 
             </div>
-          
-          <HeroCarousel/>
 
-     
-      </>
+            <HeroCarousel />
+
+
+        </>
     )
 }
 
@@ -159,7 +166,7 @@ const Infocarousel = (props) => {
         aAdd,
         buttonInfo,
         infoLink,
-        changeInfo,
+
     } = props
 
     return (
@@ -223,4 +230,21 @@ const Infocarousel = (props) => {
 
 
 
+const Searchbar = () => {
 
+    return (
+        <div className="Search-bar-container">
+
+            <form className="Search-bar-wrapper">
+
+                <span className="Search-icon">
+                <svg fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M9.360 2.025 C 7.466 2.198,5.790 2.960,4.446 4.259 C 3.730 4.951,3.257 5.602,2.817 6.500 C 1.479 9.228,1.809 12.458,3.674 14.900 C 3.949 15.260,4.616 15.933,5.000 16.239 C 6.430 17.378,8.196 17.999,10.000 17.999 C 11.567 17.999,13.170 17.508,14.465 16.632 L 14.911 16.331 17.645 19.066 C 19.449 20.870,20.434 21.828,20.540 21.879 C 20.942 22.074,21.370 22.002,21.686 21.686 C 22.002 21.370,22.074 20.942,21.879 20.540 C 21.828 20.434,20.870 19.449,19.066 17.645 L 16.331 14.911 16.632 14.465 C 18.219 12.120,18.436 9.087,17.200 6.529 C 16.809 5.718,16.392 5.120,15.761 4.464 C 14.541 3.195,12.996 2.388,11.240 2.100 C 10.865 2.039,9.711 1.992,9.360 2.025 M11.041 4.097 C 12.371 4.333,13.638 5.046,14.506 6.045 C 15.229 6.879,15.707 7.879,15.909 8.980 C 15.999 9.468,15.999 10.532,15.909 11.020 C 15.805 11.587,15.653 12.064,15.423 12.545 C 14.584 14.296,13.102 15.462,11.174 15.887 C 10.603 16.013,9.397 16.013,8.826 15.887 C 6.341 15.339,4.548 13.496,4.090 11.020 C 4.000 10.531,4.000 9.469,4.090 8.980 C 4.394 7.335,5.309 5.928,6.660 5.025 C 7.725 4.313,8.873 3.981,10.140 4.019 C 10.448 4.029,10.853 4.063,11.041 4.097 " fill="white" stroke="none" fillRule="evenodd"></path></svg>
+                </span>
+                <input type="search" id='Search-bar' placeholder='Buscar' />
+                <button type='reset' className='Search-reset-button'> Borrar </button>
+
+            </form>
+
+        </div>
+    )
+}
