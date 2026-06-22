@@ -12,11 +12,11 @@ body {
 .Search-bar-container{
     position: fixed;
     top: 10%;
-    left: 10%;
+    left: 15%;
     z-index: 1;
     background-color: rgba(25,30,37,.8);
     width: 70%;
-    min-height: 6.25rem;
+    min-height: 9.375rem;
     border-radius: .75rem;
     padding: 1rem;
     backdrop-filter: blur(16px);
@@ -46,7 +46,7 @@ body {
     background-color: #33373d;
     color: white;
     width: 95%;
-    min-height: 3.125rem;
+    min-height: 4.375rem;
     padding-left: 3.125rem;
 }
 

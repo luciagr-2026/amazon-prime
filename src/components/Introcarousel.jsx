@@ -55,6 +55,13 @@ export const Introcarousel = () => {
 
     const [info, setInfo] = useState(0)
 
+    const [searchBar, setSearchBar] = useState(false)
+
+
+    const toggleSearchBar = () =>{
+        setSearchBar(prev => !prev)
+    }
+
 
     const [imagen, setImg] = useState(0)
 
@@ -93,8 +100,9 @@ export const Introcarousel = () => {
 
     return (
         <>
-            <Header />
-            <Searchbar />
+            <Header toggleSearchBar={toggleSearchBar} />
+
+            {searchBar && <Searchbar />}
 
             <div className="Intro-carousel">
 
