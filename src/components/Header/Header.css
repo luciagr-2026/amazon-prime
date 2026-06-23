@@ -23,7 +23,6 @@
    align-items: center;
 }
 
-
 .Header-a{
     width: fit-content;
     min-height: fit-content;
@@ -65,7 +64,16 @@
 .Header-icons{
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
     gap: .625rem;
+  
+}
+
+.Header-icon:hover{
+    background-color: white;
+    border-radius: 1.875rem;
+    color: black;
+    fill: black;
 }
 
 .Header-icon-logo{
