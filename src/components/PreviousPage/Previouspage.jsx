@@ -1,6 +1,7 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
+import { Cookies } from './Cookies'
 import './Previouspage.css'
 import { useState } from 'react'
 
@@ -82,7 +83,8 @@ export const PreviousPage = () => {
             </div>
             <Herominigrid heroMiniGrid={heroMiniGrid} />
             <HeroBenefits heroBenefits={heroBenefits} />
-            <Footer showLogo={true} className="Footer-dark" linkClassName='Footer-links'/>
+            <Cookies />
+            <Footer showLogo={true} className="Footer-dark" linkClassName='Footer-links' />
 
         </>
     )
@@ -99,24 +101,24 @@ const HeroMaingrid = ({ goToLogin }) => {
                     <img src="/GridImgs.jpg" alt="films img" className='Hero-grid-img' />
                 </div>
                 <div className="Hero-column Hero-column--right">
-                    
+
                     <div className="Hero-column-info">
                         <h1 className="Hero-grid-h1"> Ve películas y series </h1>
 
-                         <button className="Hero-button Hero-button--login">¿Eres cliente de Amazon? Identifícate </button>
-                         
+                        <button className="Hero-button Hero-button--login">¿Eres cliente de Amazon? Identifícate </button>
+
                         <p className="Hero-column-p">
                             Suscríbete a Amazon Prime para ver películas y series populares,
                             incluidos títulos Amazon Original galardonados. Amazon Prime también
                             incluye la entrega rápida y gratis de millones de productos y más.
                         </p>
-                       
+
                         <button className="Hero-button Hero-button--sub">Empieza tu periodo de prueba de 30 días gratis* </button>
 
-                         <div className="Hero-price-span">
-                            *€ 49,90/año o € 4,99/mes una vez que finalice el periodo de prueba gratis. 
+                        <div className="Hero-price-span">
+                            *€ 49,90/año o € 4,99/mes una vez que finalice el periodo de prueba gratis.
                             <NavLink className="Hero-student-link" to="https://www.amazon.es/amazonprime?_encoding=UTF8&primeCampaignId=studentWlpPrimeRedir&ref=dvm_es_gc_mlp_st_unreclink">¿Eres estudiante?</NavLink>
-                         </div>
+                        </div>
                     </div>
 
 
@@ -181,6 +183,8 @@ const HeroBenefits = ({ heroBenefits }) => {
                     </div>
                 </div>
             )}
+           
         </div>
     )
 }
+

@@ -54,15 +54,6 @@
     width: 17%;
 }
 
-.Header-li:nth-child(5)::before{
-  content: '';
-  width: 1.875rem;
-  min-height: 1.875rem;
-  position: absolute;
-  top:0;
-  background-color: whitesmoke;
-}
-
 .Header-li:nth-child(6){
     display: flex;
     flex-flow: row nowrap;

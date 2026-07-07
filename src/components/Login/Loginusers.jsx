@@ -45,8 +45,7 @@ export const LoginUsers = () => {
             const response = await fetch(`${VITE_EXPRESS}/login/email`, options)
 
 
-            const data = await response.json()
-
+            const data = await response //response.json()?
             console.log(data)
 
             if (data.user) {

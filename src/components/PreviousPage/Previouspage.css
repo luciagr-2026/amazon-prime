@@ -204,3 +204,43 @@
 .Herobenefits-img {
     width: 70%;
 }
+
+/* 
+Here begin the Cookies section. */
+
+.Cookies-container{
+    width: 90%;
+    min-height: 20vh;
+    background-color: black;
+    position: fixed;
+    left: 5%;
+    bottom: 0;
+    z-index: 1;
+    border-width: .0625rem;
+    border-color: white;
+    border-style: solid;
+}
+
+.Cookies-container.isClose{
+    display: none;
+}
+
+.Cookies-text{
+    color: rgb(168, 168, 168);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.25rem;
+    padding: 1.25rem;
+}
+
+.Cookies-a{
+    color: rgb(190, 185, 185);
+}
+
+.Cookies-links{
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    text-decoration: underline;
+}
+
