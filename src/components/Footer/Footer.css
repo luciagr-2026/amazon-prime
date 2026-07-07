@@ -1,5 +1,11 @@
 /* Aquí comienza el footer de la página Login */
-
+.Footer-light{
+    width: 100%;
+    min-height: 15vh;
+    text-align: center;
+    background-color: white;
+    color: rgb(129, 151, 164);
+}
 
 .Footer-dark{
     width: 100%;

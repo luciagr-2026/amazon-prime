@@ -139,7 +139,7 @@ const Herominigrid = ({ heroMiniGrid }) => {
                         <p className="Heromini-p">{hero.description}</p>
 
                         {hero.button && (
-                            <button className="Hero-mini-button"> {hero.button}</button>
+                            <button className="Mini-grid-button"> {hero.button}</button>
                         )}
                     </div>
 

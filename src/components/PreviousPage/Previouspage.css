@@ -124,7 +124,7 @@
     font-size: 1.25rem;
 }
 
-/*.Heromini-button {
+.Mini-grid-button {
     width: 18.75rem;
     min-height: 3.125rem;
     border-radius: .625rem;
@@ -135,9 +135,7 @@
 
 
 
-
-
-.Heromini-button:hover {
+.Mini-grid-button:hover {
      width: 18.75rem;
     min-height: 3.125rem;
     border-radius: .625rem;
@@ -146,7 +144,7 @@
     cursor: pointer;
     transform: scale(1.1);
    transition: scale .5s ease-in;
-}*/
+}
 
 .Heromini-column--right {
     display: grid;

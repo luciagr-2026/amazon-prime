@@ -54,6 +54,21 @@
     width: 17%;
 }
 
+.Header-li:nth-child(5)::before{
+  content: '';
+  width: 1.875rem;
+  min-height: 1.875rem;
+  position: absolute;
+  top:0;
+  background-color: whitesmoke;
+}
+
+.Header-li:nth-child(6){
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .3125rem;
+}
+
 .Header-li:nth-child(7){
     display: flex;
     flex-flow: row nowrap;
@@ -66,7 +81,18 @@
     flex-flow: row nowrap;
     align-items: center;
     gap: .625rem;
+    margin-right: 2.5rem;
   
+}
+
+.Header-a-subscription{
+    width: 9.375rem;
+    padding: .625rem;
+    background-color: #2162a1;
+    border-radius: .625rem;
+    color: white;
+    text-decoration: none;
+    
 }
 
 .Header-icon:hover{
@@ -83,5 +109,6 @@
 
 .Header-login-icon{
     width: 26%;
+    
 }
 
