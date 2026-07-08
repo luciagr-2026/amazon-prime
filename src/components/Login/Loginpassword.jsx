@@ -13,10 +13,14 @@ export const LoginPassword = () => {
 
 
     const navigate = useNavigate()
-    const { VITE_EXPRESS } = import.meta.env
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [openHelp, setOpenHelp] = useState(false)
     const [remember, setRemember] = useState(false)
+
+    function changeArrow() {
+        setOpenHelp(prev => !prev)
+    }
 
     const location = useLocation()
     const email = location.state?.email; // State : Permite enviar datos entre páginas. 
@@ -31,7 +35,7 @@ export const LoginPassword = () => {
 
         try {
 
-            let options = 
+            let options =
 
             {
                 method: "POST",
@@ -44,9 +48,7 @@ export const LoginPassword = () => {
                 })
             }
 
-            const response = await fetch(
-                `${VITE_EXPRESS}/login/password`, options
-                 )
+            const response = await fetch(`${API_URL}/users/login/password`, options)
 
 
             const data = await response.json()
@@ -115,10 +117,19 @@ export const LoginPassword = () => {
                         <div className="Login-fq">
                             <div className="Login-help">
                                 <a href="#" className="Login-helping-a" onClick={() => setRemember(true)}>Detalles</a>
-                                <img src="/UpArrow.png" alt="arrow"
-                                    className={openHelp ? 'Login-arrow Login-arrow--up Open' : `Login-arrow Login-arrow--up `} style={{ width: `1.125rem` }} />
-                                <img src="/DownArrow.png" alt="arrow"
-                                    className={openHelp ? 'Login-arrow Login-arrow--down Close' : `Login-arrow Login-arrow--down`} style={{ width: `1.0625rem` }} />
+
+                                <img src="/UpArrow.png"
+                                    alt="arrow"
+                                    className={openHelp ? "Login-arrow Login-arrow--up Open" : "Login-arrow Login-arrow--up"}
+                                    onClick={changeArrow}
+                                    style={{ width: `1.125rem` }}
+                                />
+
+                                <img src="/DownArrow.png"
+                                    alt="arrow"
+                                    className={openHelp ? "Login-arrow Login-arrow--down Close" : "Login-arrow Login-arrow--down"}
+                                    onClick={() => {changeArrow(), setRemember(true)}}
+                                    style={{ width: `1.0625rem` }} />
 
                             </div>
                             <a href="#" className="Login-helping-pass">¿Has olvidado la contraseña?</a>

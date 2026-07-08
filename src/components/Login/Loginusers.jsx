@@ -9,7 +9,9 @@ export const LoginUsers = () => {
 
     const navigate = useNavigate()
 
-    const { VITE_EXPRESS } = import.meta.env
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    console.log(`${API_URL}/users/login/email`);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -26,43 +28,39 @@ export const LoginUsers = () => {
 
 
     async function verifyEmail(e) {
-        
-        e.preventDefault()
+        e.preventDefault();
 
         try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/users/login/email`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email }),
+                }
+            );
 
-            let options =
-            {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email
-                })
-            }
+            const data = await response.json();
 
-            const response = await fetch(`${VITE_EXPRESS}/login/email`, options)
-
-
-            const data = await response //response.json()?
-            console.log(data)
+            console.log(data);
 
             if (data.user) {
-                navigate("/LoginPasswordPage", { state: { email} })
-                localStorage.setItem('user', JSON.stringify({ email: true }))
-                console.log("Login correct")
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify({ email: true })
+                );
+
+                navigate("/LoginPasswordPage", {
+                    state: { email },
+                });
             } else {
-                navigate("/LoginUsers")
-                console.log("Try a new email")
+                console.log("Try a new email");
             }
-
-        } catch (error) {
-
-            console.log(error)
-
+        } catch (err) {
+            console.log(err);
         }
-
     }
 
 
@@ -136,7 +134,7 @@ const LoginEmail = ({ email, setEmail, verifyEmail }) => {
 
 
                     <div className="Login-fq">
-                        <div className="Login-help" onClick={() => { setOpenHelp(!openHelp)}}>
+                        <div className="Login-help" onClick={() => { setOpenHelp(!openHelp) }}>
                             <a href="#" className="Login-helping-a">¿Necesitas ayuda?</a>
                             <img src="/UpArrow.png" alt="arrow" className={openHelp ? 'Login-arrow Login-arrow--up Open' : `Login-arrow Login-arrow--up `} style={{ width: `1.125rem` }} />
                             <img src="/DownArrow.png" alt="arrow" className={openHelp ? 'Login-arrow Login-arrow--down Close' : `Login-arrow Login-arrow--down`} style={{ width: `1.0625rem` }} />
@@ -156,7 +154,7 @@ const LoginEmail = ({ email, setEmail, verifyEmail }) => {
             </div>
 
 
-          <Footer/>
+            <Footer />
 
         </div>
     )

@@ -1,9 +1,9 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
 import { Cookies } from './Cookies'
 import './Previouspage.css'
-import { useState } from 'react'
+
 
 export const PreviousPage = () => {
 
@@ -13,11 +13,11 @@ export const PreviousPage = () => {
         navigate('/LoginUsers')
     }
 
-    const [flex, setFlex] = useState(true)
+    /*const [flex, setFlex] = useState(true)
 
     const toggleFlex = () => {
         setFlex(prev => !prev)
-    }
+    }*/
 
     const heroMiniGrid = [
         {
@@ -90,7 +90,7 @@ export const PreviousPage = () => {
     )
 }
 
-const HeroMaingrid = ({ goToLogin }) => {
+const HeroMaingrid = () => {
 
     return (
         <div className="Hero-grid">

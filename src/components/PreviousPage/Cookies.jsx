@@ -33,7 +33,7 @@ export function Cookies() {
 
                     Si estás de acuerdo, también usaremos cookies para complementar tu experiencia de visualización en los servicios de video de Amazon, como se describe en nuestro Aviso de cookies. Es incluye el uso de cookies de anuncios propias y de terceros en este servicio. Las cookies almacenan o acceden a información estándar del dispositivo, como un identificador único.
                     <a
-                        href="https://www.primevideo.com/help/ref=atv_hp_nd_nav?nodeId=GZVH7DTWNBGPRPDS"
+                        href="https://www.primevideo.com/region/eu/privacyprefs/primevideo/partners"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="Cookies-a"
@@ -41,17 +41,17 @@ export function Cookies() {
 
                     Para obtener más información sobre cómo y con qué fines Amazon usa la información personal (como el hishrefrial de pedidos de la tienda de Amazon y el hishrefrial de visualización de Prime Video) y las cookies con finalidades de publicidad, consulta nuestro
                     <a
-                        href="https://www.primevideo.com/help/ref=atv_hp_nd_nav?nodeId=GZVH7DTWNBGPRPDS"
+                        href="https://www.primevideo.com/region/eu/help/ref=atv_hp_nd_cnt?nodeId=202064890"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="Cookies-a"
-                    >  Aviso de privacidad y nuestro  </a>
+                    >  Aviso de privacidad</a> y nuestro 
                      <a
                         href="https://www.primevideo.com/help/ref=atv_hp_nd_nav?nodeId=GZVH7DTWNBGPRPDS"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="Cookies-a"
-                    >  Aviso de cookies. </a>
+                    > Aviso de cookies. </a>
 
                     Haz clic en Rechazar para no aceptarlo o en Personalizar para especificar más tus opciones de anuncios u obtener más información sobre cómo cambiarlas.
                 </p>

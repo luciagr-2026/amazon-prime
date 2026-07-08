@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Header } from './Header/Header'
 import { getMovies } from '../api/movies'
 //import { Footer } from './Footer/Footer'
-import { data, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export const Introcarousel = () => {
