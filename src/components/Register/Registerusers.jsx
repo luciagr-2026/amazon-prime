@@ -6,7 +6,8 @@ import { Footer } from '../Footer/Footer'
 
 export const Registerusers = () => {
 
-    const { VITE_EXPRESS } = import.meta.env
+    const API_URL = import.meta.env.VITE_API_URL;
+
 
     const [numberInput, setNumberInput] = useState(true)
 
@@ -15,7 +16,7 @@ export const Registerusers = () => {
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('34')
     const [password, setPassword] = useState('')
-    const [loading, setLoading] = useState(false)
+   
     const [register, setRegister] = useState('')
 
     const navigate = useNavigate()
@@ -28,8 +29,6 @@ export const Registerusers = () => {
     async function registerNewUser(e) {
 
         e.preventDefault()
-
-        setLoading(true)
 
         try {
 
@@ -47,7 +46,7 @@ export const Registerusers = () => {
                 })
             }
 
-            const response = await fetch(`${VITE_EXPRESS}/register`, options)
+            const response = await fetch(`${API_URL}/users/register`, options)
 
 
             const data = await response.json()
@@ -63,11 +62,10 @@ export const Registerusers = () => {
 
 
 
-        } catch (error) {
+        }catch(error) {
+            console.log(error)
             setRegister("Try different data")
-        } finally {
-            setLoading(false)
-        }
+        } 
 
 
     }
@@ -416,8 +414,9 @@ export const Registerusers = () => {
                             Es posible que se apliquen tarifas de mensajes y datos.
                         </p>
 
-                        <button type='submit' className="Register-button" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
-                            {loading ? 'Creando' : 'Continuar'} </button>
+                        <button type='submit' className="Register-button" >
+                            Continuar
+                             </button>
                     </form>
 
                     <div className="Register-login">
