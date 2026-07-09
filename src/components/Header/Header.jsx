@@ -1,8 +1,23 @@
 import { NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './Header.css'
 
 
 export const Header = ({toggleSearchBar}) => {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   /*const floatingMenu = [
     {
@@ -66,7 +81,7 @@ export const Header = ({toggleSearchBar}) => {
 
 return(
 
-    <div className="Header">
+    <div className={`Header ${isScrolled ? 'Header-scrolled' : ''}`}>
 
     <div className="Header-left">
 

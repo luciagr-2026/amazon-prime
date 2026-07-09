@@ -23,6 +23,10 @@
    align-items: center;
 }
 
+.Header-scrolled {
+    background-color: rgba(25, 30, 37, .8);
+}
+
 .Header-a{
     width: fit-content;
     min-height: fit-content;
