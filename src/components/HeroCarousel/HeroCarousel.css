@@ -9,8 +9,8 @@
     width: 100%;
     min-height: 20vh;
     /* background-color: #f13772; */
-    margin: 20px 0 20px 40px;
-    overflow: hidden;
+    margin: 20px 0 20px 0px;
+    overflow: visible;              /*CHANGE THIS WHEN THE CAROUSEL MOVES.*/
     position: relative;
 }
 
@@ -23,15 +23,17 @@
 }
 
 .Hero-carousel-wrapper {
-    width: 3100%;
+    width: 1000%;
     min-height: 15vh;
     /* background-color: orange; */
 
     display: grid;
     grid-template-columns: repeat(31, 15.625rem);
+    
+    justify-content: space-around;
     gap: 1.25rem;
     position: relative;
-    transition:  transform 0.4s ease;
+    transition: transform 0.4s ease;
 
 
 }
@@ -40,32 +42,84 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: .625rem;
     /* background-color: #37f1a3; */
 }
 
-.Hero-film-img.Scale{
-   transform: scale(1.1);
+
+.Hero-img-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: .3125rem;
+    width: 25rem;
+
+    transition: transform .4s ease;
+    transform-origin: center;
 }
 
-.Hero-buttons{
+.Hero-img-wrapper.active {
+    transform: scale(1.15);
+}
+
+img{
+    color: white;
+}
+
+.Hero-film-info {
     
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .25s ease,
+                transform .25s ease;
+}
+
+.Hero-film-info.Show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+.Hero-film-platform {
+    align-items: center;
+    display: flex;
+    gap: 2px;
+}
+
+.Hero-buttons {
+
+    display: none;
+
     position: absolute;
     /* background-color: orange; */
 
     display: flex;
     
+
     width: 62.4rem;
-    justify-content: space-between;
-    top: 40%;
+    
+    top: 0;
 }
- 
- .Button-next{
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
 
- }
-
- .Button-prev{
+.Hero-button--next {
+    display: none;
+    width: 4.375rem;
+    height: 31.25rem;
+    background-color: transparent;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+}
 
- }
+.Hero-button--prev {
+     display: none;
+    width: 4.375rem;
+    height: 31.25rem;
+    background-color: transparent;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+}
+
 

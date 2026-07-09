@@ -73,14 +73,14 @@
     border-radius: .625rem;
     font-size: 1.0625rem;
 }
-
+/* 
 .Hero-button:hover {
     scale: 1.1;
     background-color: rgba(255, 255, 255, 0.924);
     filter: opacity(0.5);
     transition: scale 1s ease;
     cursor: pointer;
-}
+} */
 
 
 .Hero-price-span {

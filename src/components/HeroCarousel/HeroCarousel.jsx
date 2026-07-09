@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import './HeroCarousel.css'
 import { getMovies } from '../../api/movies';
+
 
 
 
@@ -8,6 +9,7 @@ import { getMovies } from '../../api/movies';
 export const HeroCarousel = () => {
 
     const [movies, setMovies] = useState([])
+
 
     const heroSectionsCategory = Object.values(
         (Array.isArray(movies) ? movies : []).reduce((acc, movie) => {
@@ -19,12 +21,7 @@ export const HeroCarousel = () => {
                         imagenes: [],
                     };
                 }
-
-                acc[genre].imagenes.push({
-                    _id: movie._id,
-                    title: movie.title,
-                    src: movie.poster,
-                });
+                acc[genre].imagenes.push(movie)
 
             });
 
@@ -32,7 +29,37 @@ export const HeroCarousel = () => {
         }, {})
     );
 
+    const [continueWatching, setContinueWatching] = useState([]);
 
+
+    const handleMovieClick = (movie) => {
+        const stored =
+            JSON.parse(localStorage.getItem("continueWatching")) || [];
+
+        const updated = stored.filter((m) => m._id !== movie._id);
+
+        updated.unshift(movie);
+
+        localStorage.setItem(
+            "continueWatching",
+            JSON.stringify(updated)
+        );
+
+        setContinueWatching(updated);
+    };
+
+    const removeMovie = (movie) => {
+        const updated = continueWatching.filter(
+            (m) => m._id !== movie._id
+        );
+
+        localStorage.setItem(
+            "continueWatching",
+            JSON.stringify(updated)
+        );
+
+        setContinueWatching(updated);
+    };
 
 
     useEffect(() => {
@@ -51,17 +78,38 @@ export const HeroCarousel = () => {
     }, [])
 
 
+    useEffect(() => {
+        const stored =
+            JSON.parse(localStorage.getItem("continueWatching")) || [];
+
+        setContinueWatching(stored);
+    }, []);
+
+
     return (
         <>
 
+            {continueWatching.length > 0 && (
+                <HeroSections
+                    title="Continue Watching"
+                    imagenes={continueWatching}
+                    handleMovieClick={handleMovieClick}
+                    removeMovie={removeMovie}
+                    isContinueWatching={true}
+                />
+            )}
 
 
-            {heroSectionsCategory.map(hero =>
+
+            {heroSectionsCategory.map(hero => (
                 <HeroSections
                     key={hero._id}
                     {...hero}
+                    handleMovieClick={handleMovieClick}
+                    removeMovie={removeMovie}
+                    isContinueWatching={false}
                 />
-            )}
+            ))}
 
 
 
@@ -69,47 +117,114 @@ export const HeroCarousel = () => {
     )
 }
 
-const HeroSections = ({ title, imagenes }) => {
+const HeroSections = ({
+    title,
+    imagenes,
+    handleMovieClick,
+    removeMovie,
+    isContinueWatching
+}) => {
+
+    const [hoveredMovie, setHoveredMovie] = useState(null)
 
 
     return (
-        <>
-            <div className="Hero-carousel">
 
-                <h1 className='Hero-carousel-h3'>{title}</h1>
+        <div className="Hero-carousel">
 
-                <div
-                    className="Hero-carousel-wrapper"
-                    /*style={{
-                        transform: `translateX(-${page * 16.875}rem)`
-                    }}*/
-                >
-                    {imagenes.map((img) => {
+            <h1 className='Hero-carousel-h3'>{title}</h1>
 
-                        console.log(img)
+            <div
+                className="Hero-carousel-wrapper"
+            /*style={{
+                transform: `translateX(-${page * 16.875}rem)`
+            }}*/
+            >
+                {imagenes.map((movie) => {
 
-                        const imageSrc = img.src.startsWith("/posters")
-                            ? `http://localhost:3000${img.src}`
-                            : img.src;
+                    console.log(movie)
 
-                        console.log(imageSrc)
+                    return (
 
-                        return (
-                            <img
-                                key={img._id}
-                                src={img.src}
-                                alt={img.title}
-                                className="Hero-film-img"
-                            />
-                        );
-                    })}
-                </div>
+                        <Fragment key={movie._id} >
+
+                            <div className={`Hero-img-wrapper ${hoveredMovie === movie._id ? "active" : ""
+                                }`}
+                                onMouseEnter={() => setHoveredMovie(movie._id)}
+                                onMouseLeave={() => setHoveredMovie(null)}
+
+                            >
+                                <img
+
+                                    src={movie.poster}
+                                    alt={movie.title}
+                                    className="Hero-film-img"
+                                    onClick={() => handleMovieClick(movie)}
+                                />
+
+                                <div
+                                    className={
+                                        hoveredMovie === movie._id
+                                            ? "Hero-film-info Show"
+                                            : "Hero-film-info"
+                                    }
+                                    onMouseEnter={() => setHoveredMovie(movie._id)}
+                                    onMouseLeave={() => setHoveredMovie(null)}
+                                >
+                                    <h2 className="Hero-film-title">{movie.title}</h2>
+                                    <div className="Hero-film-platform">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="-5 -5 34 34" id="alert-success" y="306"><g transform="translate(2 2)" stroke="#E4FDBF" stroke-width="2" fill="none" fillRule="evenodd"><circle cx="10" cy="10" r="9" vector-effect="non-scaling-stroke" /><path stroke-linecap="round" stroke-linejoin="round" d="M5 9.571L8.15 13 14 7" /></g></svg>
+                                        <div className="Hero-film-platform-name"> Se incluye con {movie.platform.join(",")}</div>
+                                    </div>
+                                    <div className="Hero-film-icons">
+                                        <svg onClick={() => handleMovieClick(movie)} xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="-5 -5 34 34" id="play-arrow" y="1585"><path d="M4.576 2.452C3.71 1.953 3 2.364 3 3.364v17.272c0 1 .71 1.41 1.576.912l15.03-8.642c.867-.498.867-1.314 0-1.812L4.576 2.452z" fill="#FFF" fillRule="evenodd" /></svg>
+
+                                        {isContinueWatching && (
+                                            <svg
+                                                onClick={(e) => {
+                                                     e.stopPropagation()
+                                                    removeMovie(movie)}}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="34"
+                                                height="34"
+                                                viewBox="-5 -5 34 34"
+                                            >
+                                                <path
+                                                    d="M4.874 4.874l14.252 14.252m-14.252 0L19.126 4.874"
+                                                    stroke="#FFF"
+                                                    strokeWidth="2"
+                                                    fill="none"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        )}
+                                        </div>
+                                        
+                                    <p className="Hero-film-description">{movie.description}</p>
+                                </div>
 
 
 
+
+                            </div>
+
+                            <div className="Hero-buttons">
+                                <button className="Hero-button Hero-button--next">
+                                    <svg className="Arrow Arrow--next" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><title>Back</title><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.578 3.099 C 15.424 3.176,14.455 4.124,11.255 7.329 C 7.474 11.115,7.124 11.476,7.065 11.657 C 6.983 11.906,6.983 12.094,7.065 12.343 C 7.124 12.524,7.474 12.885,11.255 16.671 C 14.023 19.443,15.433 20.827,15.540 20.879 C 15.790 21.000,15.999 21.018,16.265 20.940 C 16.581 20.849,16.844 20.590,16.936 20.283 C 17.016 20.013,17.016 19.949,16.937 19.677 C 16.875 19.466,16.775 19.362,13.147 15.730 L 9.421 12.000 13.129 8.290 C 16.006 5.411,16.855 4.540,16.917 4.400 C 17.022 4.168,17.025 3.799,16.925 3.578 C 16.834 3.377,16.518 3.094,16.325 3.041 C 16.070 2.970,15.793 2.992,15.578 3.099 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>
+                                </button>
+
+                                <button className="Hero-button Hero-button--prev">
+                                    <svg className="Arrow Arrow--prev" viewBox="0 0 24 24" height="24" width="24" role="img" aria-hidden="true"><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.758 3.054 C 7.416 3.147,7.160 3.395,7.061 3.729 C 6.985 3.987,6.985 4.053,7.063 4.323 C 7.125 4.534,7.225 4.638,10.853 8.270 L 14.579 12.000 10.871 15.710 C 7.994 18.589,7.145 19.460,7.083 19.600 C 6.984 19.819,6.975 20.182,7.062 20.391 C 7.144 20.587,7.381 20.831,7.580 20.924 C 7.818 21.034,8.175 21.025,8.422 20.901 C 8.576 20.824,9.545 19.876,12.745 16.671 C 16.526 12.885,16.876 12.524,16.935 12.343 C 17.017 12.094,17.017 11.906,16.935 11.657 C 16.876 11.476,16.528 11.117,12.768 7.353 C 9.951 4.532,8.609 3.214,8.483 3.147 C 8.252 3.024,7.992 2.990,7.758 3.054 " fill="white" stroke="none" fillRule="evenodd"></path></svg></svg>
+                                </button>
+
+                            </div>
+                        </Fragment>
+                    )
+                 })}
             </div>
 
-        </>
+        </div>
 
     )
 }
