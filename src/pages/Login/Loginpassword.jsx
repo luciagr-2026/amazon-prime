@@ -58,10 +58,10 @@ export const LoginPassword = () => {
 
 
             if (data.user) {
-                navigate("/Introcarousel")
+                navigate("/home")
                 localStorage.setItem('user', JSON.stringify({ email, password: true }))
             } else {
-                navigate("/LoginUsers")
+                navigate("/login/email")
                 console.log("Login incorrect")
             }
 
@@ -86,14 +86,14 @@ export const LoginPassword = () => {
 
         <div className="Login-page-password">
             <div className="Login-block">
-                <NavLink to="/Introcarousel">  <img src="/BlackPrimeLogo.png" alt="Prime Logo" className="Login-logo-password" /> </NavLink>
+                <NavLink to="/home">  <img src="/BlackPrimeLogo.png" alt="Prime Logo" className="Login-logo-password" /> </NavLink>
                 <form className="Login-form" onSubmit={verifyPassword}>
                     <h1 className="Login-password-h1"> Iniciar sesión </h1>
 
                     <div className="Login-chance-email">
                         <div className='Login-email-choice'> {email || "No email provided"} </div>
 
-                        <NavLink to={"/LoginUsers"} className="Login-email-change"> Cambiar </NavLink>
+                        <NavLink to={"/login/email"} className="Login-email-change"> Cambiar </NavLink>
 
                     </div>
 

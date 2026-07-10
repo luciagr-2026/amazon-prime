@@ -55,7 +55,7 @@ export const Registerusers = () => {
 
             if (response.ok) {
                 setRegister("You have been registered successfully")
-                navigate("/LoginUsers")
+                navigate("/login/email")
             } else {
                 setRegister("Try different data")
             }
@@ -421,7 +421,7 @@ export const Registerusers = () => {
 
                     <div className="Register-login">
                         <span className="Register-login-span"> ¿Ya tienes una cuenta?</span>
-                        <NavLink to="/LoginUsers" className="Register-login-link">Iniciar sesión </NavLink>
+                        <NavLink to="/login/email" className="Register-login-link">Iniciar sesión </NavLink>
                     </div>
 
                 </div>

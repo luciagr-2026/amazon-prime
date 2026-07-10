@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/*button {
+all: unset;
+font-size: 1.0625rem;
+}*/ 
+
+
 .Search-bar-container{
     position: fixed;
     top: 10%;

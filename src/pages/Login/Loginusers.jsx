@@ -20,7 +20,7 @@ export const LoginUsers = () => {
 
     const goToRegister = () => {
 
-        navigate('/Register')
+        navigate('/register')
 
 
     }
@@ -52,7 +52,7 @@ export const LoginUsers = () => {
                     JSON.stringify({ email: true })
                 );
 
-                navigate("/LoginPasswordPage", {
+                navigate("/login/password", {
                     state: { email },
                 });
             } else {
@@ -105,7 +105,7 @@ const LoginEmail = ({ email, setEmail, verifyEmail }) => {
 
         <div className="Login-page">
             <div className="Login-block">
-                <NavLink to="/Introcarousel">  <img src="/BlackPrimeLogo.png" alt="Prime Logo" className="Login-logo" /> </NavLink>
+                <NavLink to="/home">  <img src="/BlackPrimeLogo.png" alt="Prime Logo" className="Login-logo" /> </NavLink>
                 <form className="Login-form" onSubmit={verifyEmail}>
                     <h1 className="Login-h1"> Iniciar sesión </h1>
                     <div className="Login-span"> Introduce el número de teléfono móvil o el correo electrónico</div>

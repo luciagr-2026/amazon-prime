@@ -10,7 +10,7 @@ export const PreviousPage = () => {
     const navigate = useNavigate()
 
     const goToLogin = () => {
-        navigate('/LoginUsers')
+        navigate('/login/email')
     }
 
     /*const [flex, setFlex] = useState(true)

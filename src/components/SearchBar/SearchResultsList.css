@@ -4,6 +4,20 @@
 }
 
 .Search-bar-results {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .4375rem;
     color: white;
     font-size: 1.0625rem;
+    text-decoration: none;
+}
+
+.Movie-result{
+    width: 15.625rem;
+    border-radius: .625rem;
+}
+
+.Search-bar-results-time{
+    font-size: .875rem;
+  color: rgb(217, 204, 204);
 }
