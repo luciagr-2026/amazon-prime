@@ -1,10 +1,10 @@
 import { Navigate } from 'react-router-dom'
-import { PreviousPage } from './components/PreviousPage/Previouspage'
-import { Introcarousel } from './components/Introcarousel'
+import {PreviousPage} from '../src/pages/PreviousPage/Previouspage'
+import {Introcarousel} from '../src/pages/Introcarousel/Introcarousel'
 
-import { LoginUsers } from './components/Login/Loginusers'
-import { Registerusers } from './components/Register/Registerusers'
-import {LoginPasswordPage} from './components/Login/Loginpassword'
+import { LoginUsers } from './pages/Login/Loginusers'
+import { Registerusers } from './pages/Register/Registerusers'
+import {LoginPasswordPage} from '../src/pages/Login/Loginpassword'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './App.css'

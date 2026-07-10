@@ -1,17 +1,18 @@
-
 import './SearchResultsList.css'
 
 
-export const SearchResultsList = ({results}) => {
+export const SearchResultsList = ({ filteredMovies }) => {
+
+
     return (
         <>
-            <div className="Search-bar-results">SearchResultsList
-             {results.map((result, id) => {
-                return <ul key={result.id} className='Search-bar-results-ul'>
-                   <li className="Search-bar-results-ul">{result.name}</li>
-                </ul>
-             })}
-            </div>
+            <div className="Search-results-container">
+            {filteredMovies.map(movie => (
+                <h2 key={movie._id} className='Search-bar-results'>
+                    {movie.title}
+                </h2>
+            ))
+            }</div>
         </>
     )
 }

@@ -1,9 +1,9 @@
-import { HeroCarousel } from './HeroCarousel/HeroCarousel'
+import { HeroCarousel } from '../HeroCarousel/HeroCarousel'
 import './Introcarousel.css'
 import { useEffect, useState } from 'react'
-import { Header } from './Header/Header'
-import { getMovies } from '../api/movies'
-import { SearchBar } from './SearchBar/SearchBar'
+import { Header } from '../../components/Header/Header'
+import { getMovies } from '../../api/movies'
+import { SearchBar } from '../../components/SearchBar/SearchBar'
 //import { Footer } from './Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 

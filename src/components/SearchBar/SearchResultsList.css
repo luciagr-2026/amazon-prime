@@ -1,12 +1,9 @@
+.Search-results-container {
+    margin-top: 5.625rem;
+    background-color: rgba(25,30,37,.8);
+}
+
 .Search-bar-results {
-    width: 100%;
-    background-color: rgba(25, 30, 37, .8);
-    display: flex;
-    flex-flow: column nowrap;
-    box-shadow: 0px 0px 8px #ddd;
-    border-radius: .625rem;
-    margin-top: 1rem;
-    max-height: 18.75rem;
-    overflow-y: scroll;
     color: white;
+    font-size: 1.0625rem;
 }

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { Footer } from '../Footer/Footer'
+import { Footer } from '../../components/Footer/Footer'
 import './Loginusers.css'
 import { useState, createContext, useContext } from 'react'
 

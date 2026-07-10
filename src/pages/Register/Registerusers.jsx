@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import './Registerusers.css'
 import { useState } from 'react'
-import { Footer } from '../Footer/Footer'
+import { Footer } from '../../components/Footer/Footer'
 
 
 export const Registerusers = () => {
