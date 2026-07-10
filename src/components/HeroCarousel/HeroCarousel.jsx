@@ -27,9 +27,13 @@ export const HeroCarousel = () => {
 
             return acc;
         }, {})
-    );
+    )
 
-    const [continueWatching, setContinueWatching] = useState([]);
+
+    const [continueWatching, setContinueWatching] = useState(() => {
+        const stored = localStorage.getItem("continueWatching");
+        return stored ? JSON.parse(stored) : [];
+    });
 
 
     const handleMovieClick = (movie) => {
@@ -76,14 +80,6 @@ export const HeroCarousel = () => {
         loadMovies()
 
     }, [])
-
-
-    useEffect(() => {
-        const stored =
-            JSON.parse(localStorage.getItem("continueWatching")) || [];
-
-        setContinueWatching(stored);
-    }, []);
 
 
     return (
@@ -182,8 +178,9 @@ const HeroSections = ({
                                         {isContinueWatching && (
                                             <svg
                                                 onClick={(e) => {
-                                                     e.stopPropagation()
-                                                    removeMovie(movie)}}
+                                                    e.stopPropagation()
+                                                    removeMovie(movie)
+                                                }}
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="34"
                                                 height="34"
@@ -199,8 +196,8 @@ const HeroSections = ({
                                                 />
                                             </svg>
                                         )}
-                                        </div>
-                                        
+                                    </div>
+
                                     <p className="Hero-film-description">{movie.description}</p>
                                 </div>
 
@@ -221,7 +218,7 @@ const HeroSections = ({
                             </div>
                         </Fragment>
                     )
-                 })}
+                })}
             </div>
 
         </div>
