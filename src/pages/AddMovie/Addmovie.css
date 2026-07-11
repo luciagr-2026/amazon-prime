@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #0f1111;
+
+}
+
+.Add-movie-page {
+    background-color: white;
+    width: 100%;
+    min-height: 120vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Add-movie-logo {
+    width: 90%;
+}
+
+.Add-movie-h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.Add-movie-block {
+    /* background-color: red; */
+    width: 43.75rem;
+    min-height: 25rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1.25rem;
+    position: relative;
+
+}
+
+.Add-movie-form {
+    /* background-color: orange; */
+    border: .125rem solid #e4e7e7;
+    border-radius: .625rem;
+    width: 43.75rem;
+    min-height: 15.625rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .625rem;
+}
+
+
+
+.Add-movie-span {
+    font-size: .875rem;
+    font-weight: 600;
+}
+
+.Add-movie-email {
+    border: .0625rem solid gray;
+    min-height: 1.75rem;
+    width: 100%;
+    border-radius: 8px;
+
+}
+
+
+/*.checkbox{
+background-color:#ffd814;
+color: #ffd814;
+}*/
+
+
+
+.Add-movie-checkbox{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.Add-movie-button--continue {
+    border-radius: 1.25rem;
+    border: none;
+    min-height: 1.75rem;
+    background-color: #ffd814;
+
+
+}
+
+.Add-movie-p {
+    font-size: 12px;
+}
+
+.Add-movie-conditions,
+.Add-movie-privacy {
+    color: #0a7cd1;
+    text-decoration: underline;
+
+}
+
+.Add-movie-fq {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    gap: .3125rem;
+}
+
+.Add-movie-help {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.Add-movie-help:hover {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.Add-movie-helping-a {
+    font-size: .875rem;
+    color: #2162a1;
+}
+
+.Add-movie-helping-a:hover {
+    font-size: .875rem;
+    color: black;
+    text-decoration: underline;
+}
+
+.Add-movie-arrow--up {
+    display: none;
+}
+
+.Add-movie-arrow--up.Open {
+    display: block;
+}
+
+.Add-movie-arrow--down {
+    display: block;
+}
+
+.Add-movie-arrow--down.Close {
+    display: none;
+}
+
+.Add-movie-helping-pass {
+    display: none;
+}
+
+.Add-movie-helping-pass.Open {
+    font-size: .875rem;
+    color: #2162a1;
+    display: block;
+}
+
+.Add-movie-helping-pass:hover {
+    font-size: .875rem;
+    color: black;
+    text-decoration: underline;
+}
+
+
+.Add-movie-new-account-span {
+    font-size: .75rem;
+    color: gray;
+}
+
+.Add-movie-new-account-span::after {
+    content: '';
+    width: 95px;
+    min-height: .0625rem;
+    font-size: .75rem;
+    background-color: lightgray;
+    position: absolute;
+    top: 79%;
+    left: 10%;
+}
+
+.Add-movie-new-account-span::before {
+    content: '';
+    width: 95px;
+    min-height: .0625rem;
+    font-size: .75rem;
+    background-color: lightgray;
+    position: absolute;
+    top: 79%;
+    left: 66%;
+}
+
+.Add-movie-new-account-button {
+    width: 80%;
+    min-height: 30px;
+    border-radius: 20px;
+    border: 1px solid #414444;
+    background-color: transparent;
+    margin-bottom: 3.75rem;
+}
+
+

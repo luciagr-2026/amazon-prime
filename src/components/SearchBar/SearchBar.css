@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-/*button {
-all: unset;
-font-size: 1.0625rem;
-}*/ 
-
-
 .Search-bar-container{
     position: fixed;
     top: 10%;
@@ -17,7 +11,8 @@ font-size: 1.0625rem;
     z-index: 1;
     background-color: rgba(25,30,37,.8);
     width: 70%;
-    min-height: 9.375rem;
+    
+    
     border-radius: .75rem;
     padding: 1rem;
     /* -webkit-backdrop-filter: blur(16px); */
@@ -41,13 +36,18 @@ font-size: 1.0625rem;
 }
 
 
+input#Search-bar::-webkit-search-cancel-button {
+    display: none;
+}
+
+
 #Search-bar{
-    position: absolute;
+   
     background-color: #33373d;
     color: white;
     width: 95%;
-    min-height: 4.375rem;
-    padding-left: 3.125rem;
+    
+    padding: 2rem;
 }
 
 #Search-bar:focus{
