@@ -49,7 +49,7 @@ export const Introcarousel = () => {
                 const data = await getMovies()
                 setMovies(data)
             } catch (error) {
-                console.log(error)
+               next(error)
             } finally {
                 setLoading(false)
             }

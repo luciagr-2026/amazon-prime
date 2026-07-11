@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
+
 import { useState } from "react";
 
 import { Footer } from '../../components/Footer/Footer'
@@ -6,7 +7,7 @@ import './Addmovie.css'
 
 export const AddMovie = () => {
 
- 
+
 
     const [movie, setMovie] = useState({
         title: "",
@@ -43,39 +44,47 @@ export const AddMovie = () => {
                     year: Number(movie.year),
                     duration: movie.duration,
                     type: movie.type,
-                    genres: 
+                    genres:
                         movie.genres
-                        .split(",")
-                        .map(g => g.trim()),
+                            .split(",")
+                            .map(g => g.trim()),
                     description: movie.description,
                     actors:
-                     movie.actors
-                     .split(",")
-                     .map(g => g.trim()),
+                        movie.actors
+                            .split(",")
+                            .map(g => g.trim()),
                     director: movie.director,
                     country: movie.country,
                     ageRating: movie.ageRating,
-                    languages: 
-                    movie.languages
-                    .split(",")
-                    .map(g => g.trim()),
-                    tags: 
-                    movie.tags
-                    .split(",")
-                    .map(g => g.trim()),
+                    languages:
+                        movie.languages
+                            .split(",")
+                            .map(g => g.trim()),
+                    tags:
+                        movie.tags
+                            .split(",")
+                            .map(g => g.trim()),
                     poster: movie.poster,
                     featured: movie.featured,
-                    platform: 
-                    movie.platform
-                    .split(",")
-                    .map(g => g.trim())
+                    platform:
+                        movie.platform
+                            .split(",")
+                            .map(g => g.trim())
                 })
             })
 
         const data = await response.json()
 
+        if (response.ok) {
+            navigate("/home")
+        }
+
         console.log(data)
     }
+
+    const navigate = useNavigate();
+
+
 
     return (
 
@@ -257,26 +266,29 @@ export const AddMovie = () => {
 
                     />
 
-                    <input
-                        type="text" //should I put "file"?
+                    <select
                         value={movie.poster}
-                        name="movie poster"
-                        className="Post-movie-poster"
-                        placeholder='Debe llamarse: "/posters/default.jpg'
-                        onChange={(e) => setMovie({
-                            ...movie,
-                            poster: e.target.value
-                        })}
+                        onChange={(e) =>
+                            setMovie({
+                                ...movie,
+                                poster: e.target.value
+                            })
+                        }
+                    >
 
-
-                    />
+                        <option value="/posters/default.jpg"> Poster 1</option>
+                        <option value="/posters/default1.jpg"> Poster 2</option>
+                        <option value="/posters/default2.jpg">  Poster 3</option>
+                        <option value="/posters/default3.jpg">  Poster 4</option>
+                    </select>
 
                     <div className="Add-movie-checkbox">
 
                         <input
+                            id="featured"
+                            className="Add-movie-featured"
                             type="checkbox"
                             checked={movie.featured}
-
                             onChange={(e) =>
                                 setMovie({
                                     ...movie,
@@ -285,7 +297,9 @@ export const AddMovie = () => {
                             }
                         />
 
-                        <label htmlFor="#"> true </label>
+                        <label htmlFor='featured'>
+                            Featured Movie ({movie.featured ? "true" : "false"})
+                        </label>
                     </div>
 
                     <input

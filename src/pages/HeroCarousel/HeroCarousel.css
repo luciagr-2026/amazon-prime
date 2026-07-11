@@ -83,19 +83,10 @@ img {
     gap: 2px;
 }
 
-.Hero-buttons {
-    width: 100%;
-    height: 70%;
-    position: absolute;
-    top: 13%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-
-
-}
 
 .Hero-button--next {
+    position: absolute;
+    top: 0;
     width: 4.375rem;
     height: 18.75rem;
     background-color: transparent;
@@ -103,6 +94,9 @@ img {
 }
 
 .Hero-button--prev {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 4.375rem;
     height: 18.75rem;
     background-color: transparent;

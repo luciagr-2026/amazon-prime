@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input{
+    color:  #ffd814;
+    background-color: black;
+}
+
+textarea{
+    width: 722px;
+    height: 160px;
+    border-radius: 10px;
+    border-color: white;
+    border-width: .0313rem;
+    background-color: black;
+    color:  #ffd814;
+}
+
+.Put-img-wrapper {
+     width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Put-film-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.Put-film-info {
+    color: white;
+    opacity: 1;
+    visibility: visible;
+}
+
+.Put-film-platform {
+    align-items: center;
+    display: flex;
+    gap: 2px;
+}
+
+button{
+    width: 100%;
+    border-radius: .625rem;
+    background-color:  #ffd814;
+}

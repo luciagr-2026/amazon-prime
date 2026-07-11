@@ -6,6 +6,7 @@ import { LoginUsers } from './pages/Login/Loginusers'
 import { Registerusers } from './pages/Register/Registerusers'
 import { LoginPasswordPage } from '../src/pages/Login/Loginpassword'
 import { AddMovie } from './pages/AddMovie/Addmovie'
+import { EditMovie } from './pages/EditMovie/EditMovie'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -28,6 +29,7 @@ function App() {
           <Route path='/login/password' element={<LoginPasswordPage />} />
           <Route path='/home' element={<Introcarousel />} />
           <Route path='/add/movie' element={<AddMovie/>} />
+          <Route path='/edit/movie/:id' element={<EditMovie/>} />
         </Routes>
 
 

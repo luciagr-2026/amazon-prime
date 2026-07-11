@@ -69,16 +69,24 @@ body {
 }
 
 
-/*.checkbox{
-background-color:#ffd814;
-color: #ffd814;
-}*/
-
-
-
 .Add-movie-checkbox{
-    display: flex;
-    flex-flow: row nowrap;
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    margin:.5rem 0;
+}
+
+.Add-movie-featured{
+    accent-color:#ffd814;
+    width: .875rem;
+    height:.9375rem;
+    cursor:pointer;
+}
+
+.Add-movie-checkbox label{
+    font-weight: 100;
+    font-size:.9rem;
+    cursor:pointer;
 }
 
 .Add-movie-button--continue {
@@ -86,8 +94,6 @@ color: #ffd814;
     border: none;
     min-height: 1.75rem;
     background-color: #ffd814;
-
-
 }
 
 .Add-movie-p {
