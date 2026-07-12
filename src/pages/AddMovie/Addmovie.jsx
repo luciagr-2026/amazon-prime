@@ -99,7 +99,7 @@ export const AddMovie = () => {
                     <h1 className="Add-movie-h1"> Become a creator </h1>
                     <div className="Add-movie-span"> Introduce los datos de tu película. </div>
 
-                    <label htmlFor="#"> El primer paso, ponle nombre a tu película: </label>
+                    <label> El primer paso, ponle nombre a tu película: </label>
                     <input
                         type="text"
                         value={movie.title}
@@ -332,19 +332,6 @@ export const AddMovie = () => {
                         <a href="#" className="Add-movie-privacy"> Aviso de privacidad, Aviso de cookies y Anuncios por intereses</a>
                     </div>
 
-
-                    <div className="Add-movie-fq">
-                        <div className="Add-movie-help">
-                            <a href="#" className="Add-movie-helping-a">¿Necesitas ayuda?</a>
-                            <img src="/UpArrow.png" alt="arrow" />
-                            <img src="/DownArrow.png" alt="arrow" />
-
-                        </div>
-
-                    </div>
-
-
-
                 </form>
 
 
@@ -354,7 +341,7 @@ export const AddMovie = () => {
             </div>
 
 
-            <Footer />
+            <Footer className='Footer-light' />
 
         </div>
 

@@ -199,10 +199,11 @@ const HeroSections = ({
                                 onMouseLeave={() => setHoveredMovie(null)}
                             >
                                 <img
-
                                     src={movie.poster}
                                     alt={movie.title}
                                     className="Hero-film-img"
+                                    width="258"
+                                    height="145"
                                     onClick={() => handleMovieClick(movie)}
                                 />
 
