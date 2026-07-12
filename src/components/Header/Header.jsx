@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Header.css'
 
@@ -18,6 +18,13 @@ export const Header = ({toggleSearchBar}) => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const [homeClicked, setHomeClicked] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname !== '/home') setHomeClicked(false)
+  }, [location.pathname])
 
   /*const floatingMenu = [
     {
@@ -85,26 +92,32 @@ return(
 
     <div className="Header-left">
 
-   <img src="/WhitePrimeLogo.png" alt="Prime video logo" className="Header-logo" style={{width : `5rem`, height : `0.9375rem`}} />
+   <img src="/WhitePrimeLogo.png" alt="Prime video logo" className="Header-logo" />
 
 
    <div className="Header-nav">
 
     <div className="Header-ul">
         <div className="Header-li">
-         <NavLink to="/home" className="Header-a"> inicio </NavLink> 
+         <NavLink
+           to="/home"
+           onClick={() => setHomeClicked(true)}
+           className={({ isActive }) => `Header-a Header-a--home${isActive || homeClicked ? ' Header-a--home-active' : ''}`}
+         >
+           inicio
+         </NavLink>
         </div>
         <div className="Header-li">
-          <a href="" className="Header-a"> peliculas </a>  
+          <a href="" className="Header-a" onClick={() => setHomeClicked(false)}> peliculas </a>  
         </div>
         <div className="Header-li">
-          <a href="" className="Header-a"> series </a>  
+          <a href="" className="Header-a" onClick={() => setHomeClicked(false)}> series </a>  
         </div>
         <div className="Header-li">
-          <a href="" className="Header-a"> deportes </a>  
+          <a href="" className="Header-a" onClick={() => setHomeClicked(false)}> deportes </a>  
         </div>
         <div className="Header-li">
-          <a href="" className="Header-a"> TV en directo </a>  
+          <a href="" className="Header-a" onClick={() => setHomeClicked(false)}> TV en directo </a>  
         </div>
         
         <div className="Header-li">
@@ -114,8 +127,8 @@ return(
             </div>  
           
           <div className="Header-li">  
-         <svg className="fbl-icon QrPIxm _1a_Ljt drXknT" viewBox="0 0 24 24" height="18" width="18" role="img" aria-hidden="true"><title>Tienda</title><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.503 2.041 C 8.483 2.217,7.556 2.976,7.202 3.925 C 7.027 4.393,7.001 4.639,7.001 5.849 L 7.000 6.998 4.869 7.009 L 2.738 7.020 2.539 7.122 C 2.312 7.239,2.102 7.491,2.040 7.720 C 2.011 7.828,2.002 9.427,2.011 12.809 C 2.024 17.275,2.031 17.766,2.092 18.013 C 2.358 19.085,2.821 19.909,3.550 20.605 C 4.122 21.152,4.727 21.515,5.465 21.754 C 6.194 21.990,5.896 21.980,12.000 21.980 C 18.104 21.980,17.806 21.990,18.535 21.754 C 20.034 21.268,21.241 20.077,21.737 18.593 C 21.990 17.837,21.974 18.211,21.989 12.804 C 22.004 7.245,22.024 7.622,21.702 7.300 C 21.400 6.998,21.420 7.000,19.073 7.000 L 17.000 7.000 17.000 5.858 C 17.000 4.609,16.970 4.349,16.766 3.849 C 16.499 3.193,15.964 2.633,15.296 2.312 C 14.674 2.013,14.813 2.026,12.120 2.016 C 10.789 2.011,9.611 2.023,9.503 2.041 M14.340 4.066 C 14.593 4.153,14.847 4.407,14.934 4.660 C 14.989 4.822,15.000 5.033,15.000 5.927 L 15.000 7.000 12.000 7.000 L 9.000 7.000 9.000 5.927 C 9.000 4.691,9.021 4.577,9.300 4.298 C 9.596 4.002,9.550 4.007,11.983 4.003 C 13.897 4.000,14.168 4.008,14.340 4.066 M7.000 10.570 C 7.000 11.528,7.017 12.198,7.042 12.289 C 7.103 12.509,7.315 12.762,7.531 12.874 C 7.932 13.080,8.390 13.012,8.700 12.702 C 8.994 12.408,9.000 12.363,9.000 10.573 L 9.000 9.000 12.000 9.000 L 15.000 9.000 15.000 10.570 C 15.000 11.528,15.017 12.198,15.042 12.289 C 15.103 12.509,15.315 12.762,15.531 12.874 C 15.932 13.080,16.390 13.012,16.700 12.702 C 16.994 12.408,17.000 12.363,17.000 10.573 L 17.000 9.000 18.500 9.000 L 20.000 9.000 20.000 13.116 C 20.000 17.763,20.008 17.617,19.704 18.260 C 19.281 19.152,18.537 19.741,17.581 19.938 C 17.146 20.028,6.849 20.030,6.425 19.940 C 5.466 19.737,4.729 19.164,4.312 18.296 C 4.002 17.651,4.024 18.031,4.010 13.270 L 3.998 9.000 5.499 9.000 L 7.000 9.000 7.000 10.570 " fill="currentColor" stroke="none" fillRule="evenodd"></path></svg></svg>
-           <a href="#" className="Header-a"> Tienda </a>
+           <svg className="fbl-icon QrPIxm _1a_Ljt drXknT" viewBox="0 0 24 24" height="18" width="18" role="img" aria-hidden="true"><title>Tienda</title><svg fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.503 2.041 C 8.483 2.217,7.556 2.976,7.202 3.925 C 7.027 4.393,7.001 4.639,7.001 5.849 L 7.000 6.998 4.869 7.009 L 2.738 7.020 2.539 7.122 C 2.312 7.239,2.102 7.491,2.040 7.720 C 2.011 7.828,2.002 9.427,2.011 12.809 C 2.024 17.275,2.031 17.766,2.092 18.013 C 2.358 19.085,2.821 19.909,3.550 20.605 C 4.122 21.152,4.727 21.515,5.465 21.754 C 6.194 21.990,5.896 21.980,12.000 21.980 C 18.104 21.980,17.806 21.990,18.535 21.754 C 20.034 21.268,21.241 20.077,21.737 18.593 C 21.990 17.837,21.974 18.211,21.989 12.804 C 22.004 7.245,22.024 7.622,21.702 7.300 C 21.400 6.998,21.420 7.000,19.073 7.000 L 17.000 7.000 17.000 5.858 C 17.000 4.609,16.970 4.349,16.766 3.849 C 16.499 3.193,15.964 2.633,15.296 2.312 C 14.674 2.013,14.813 2.026,12.120 2.016 C 10.789 2.011,9.611 2.023,9.503 2.041 M14.340 4.066 C 14.593 4.153,14.847 4.407,14.934 4.660 C 14.989 4.822,15.000 5.033,15.000 5.927 L 15.000 7.000 12.000 7.000 L 9.000 7.000 9.000 5.927 C 9.000 4.691,9.021 4.577,9.300 4.298 C 9.596 4.002,9.550 4.007,11.983 4.003 C 13.897 4.000,14.168 4.008,14.340 4.066 M7.000 10.570 C 7.000 11.528,7.017 12.198,7.042 12.289 C 7.103 12.509,7.315 12.762,7.531 12.874 C 7.932 13.080,8.390 13.012,8.700 12.702 C 8.994 12.408,9.000 12.363,9.000 10.573 L 9.000 9.000 12.000 9.000 L 15.000 9.000 15.000 10.570 C 15.000 11.528,15.017 12.198,15.042 12.289 C 15.103 12.509,15.315 12.762,15.531 12.874 C 15.932 13.080,16.390 13.012,16.700 12.702 C 16.994 12.408,17.000 12.363,17.000 10.573 L 17.000 9.000 18.500 9.000 L 20.000 9.000 20.000 13.116 C 20.000 17.763,20.008 17.617,19.704 18.260 C 19.281 19.152,18.537 19.741,17.581 19.938 C 17.146 20.028,6.849 20.030,6.425 19.940 C 5.466 19.737,4.729 19.164,4.312 18.296 C 4.002 17.651,4.024 18.031,4.010 13.270 L 3.998 9.000 5.499 9.000 L 7.000 9.000 7.000 10.570 " fill="currentColor" stroke="none" fillRule="evenodd"></path></svg></svg>
+           <a href="#" className="Header-a" onClick={() => setHomeClicked(false)}> Tienda </a>
           </div>
 
         </div>
