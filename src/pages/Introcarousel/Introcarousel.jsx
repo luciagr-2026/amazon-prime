@@ -49,7 +49,7 @@ export const Introcarousel = () => {
                 const data = await getMovies()
                 setMovies(data)
             } catch (error) {
-               next(error)
+               (error)
             } finally {
                 setLoading(false)
             }
@@ -65,7 +65,8 @@ export const Introcarousel = () => {
             <Header toggleSearchBar={toggleSearchBar} />
 
             {searchBar && <SearchBar />}
-
+          
+          
             <div className="Intro-carousel">
 
                 <div
@@ -97,6 +98,7 @@ export const Introcarousel = () => {
 
             </div>
 
+
             <HeroCarousel />
 
 
@@ -109,7 +111,7 @@ const Imagen = ({ movie }) => {
 
     return (
         <img
-            src={movie.poster}
+            src={movie.backdrop}
             alt={movie.title}
             className="Intro-carousel-img"
         />
