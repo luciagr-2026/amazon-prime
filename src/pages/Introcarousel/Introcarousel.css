@@ -25,6 +25,15 @@ body {
 
 }
 
+
+@media (max-width: 800px) {
+    .Intro-carousel {
+        background-color: black;
+    }
+}
+
+
+
 .Intro-carousel-wrapper {
     width: 1300%;
     height: 80vh;
@@ -42,12 +51,49 @@ body {
     display: block;
 }
 
+@media (max-width: 800px) {
+    .Intro-carousel-img {
+        object-fit: contain;
+    }
+}
+
+.Intro-trailer{
+    width:100%;
+    height:80vh;
+    overflow:hidden;
+}
+
+
+@media(max-width:900px){
+
+    .Intro-trailer{
+
+        width:95vw;
+        height:54vw;
+
+    }
+
+}
+
+.Intro-trailer iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.Intro-trailer-exit{
+    position: absolute;
+    top: 20%;
+    left: 94%;
+}
+
+
 
 .Intro-carousel-info {
     width: 37.5rem;
     color: white;
     position: absolute;
-    top: 50%;
+    top: 37%;
     left: 9%;
     display: block;
 
@@ -59,6 +105,31 @@ body {
 }
 
 
+@media (max-width: 800px) {
+    .Intro-carousel-info {
+        top: 40%;
+        left: 9%;
+    }
+}
+
+
+.Info-film-play {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: .625rem;
+    padding: .625rem;
+    background-color: white;
+    color: black;
+    width: 10.625rem;
+    border-radius: .625rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
 
 .Intro-film-text {
     display: flex;
@@ -67,40 +138,99 @@ body {
 
 }
 
-.Intro-prime-logo{
+@media (max-width: 800px) {
+    .Intro-film-text {
+
+        gap: .625rem;
+
+    }
+}
+
+.Intro-hbo-logo {
+    width: 4rem;
+}
+
+
+.Intro-prime-logo {
     width: 5rem;
 }
 
+@media (max-width: 800px) {
+    .Intro-prime-logo {
+        width: 3.125rem;
+    }
+}
+
 .Intro-film-logo {
-    width: 25rem;
-}
-
-.Intro-film-logo:nth-child(1) {
-    width: 15.625rem;
+    width: 31.25rem;
 }
 
 
-.Info-film-description{
+
+@media (max-width: 800px) {
+    .Intro-film-logo {
+        width: 12.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .Intro-film-logo:nth-child(1) {
+        width: 8.75rem;
+    }
+}
+
+
+
+.Info-film-description {
     display: none;
 }
 
-.Info-film-description.Active{
+.Info-film-description.Active {
     font-size: 1.25rem;
     display: block;
 }
 
 
-.Intro-film-span{
+@media (max-width: 800px) {
+    .Info-film-description.Active {
+        font-size: .875rem;
+        display: block;
+    }
+
+}
+
+.Intro-film-span {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     gap: .625rem;
 }
 
+
+
+
+@media (max-width: 800px) {
+    .Intro-film-svg {
+        width: .875rem;
+        height: .875rem;
+
+    }
+}
+
+@media (max-width: 800px) {
+    .Intro-film-platform-name {
+        font-size: .875rem;
+    }
+}
+
+
+
+
+
 .Button--next {
     position: absolute;
     top: 50%;
-    left: -40%;
+    left: -45%;
     background-color: transparent;
     border: none;
 }
@@ -108,7 +238,7 @@ body {
 .Button--prev {
     position: absolute;
     top: 50%;
-    right: -40%;
+    right: -45%;
     background-color: transparent;
     border: none;
 }

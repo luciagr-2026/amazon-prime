@@ -14,8 +14,38 @@
     position: relative;
 }
 
-.Hero-carousel-h3 {
+.Hero-carousel:hover .Hero-button--prev {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 
+    position: absolute;
+    
+    top: 14%;
+    right: 0;
+    width: 4.375rem;
+    height: 9.0625rem;
+    background-color: transparent;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+}
+
+.Hero-carousel:hover .Hero-button--next {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    position: absolute;
+    
+    top: 14%;
+   
+    width: 4.375rem;
+    height: 9.0625rem;
+    background-color: transparent;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
+}
+
+.Hero-carousel-h3 {
+  
     text-align: start;
     margin-left: .625rem;
     color: white;
@@ -35,8 +65,34 @@
     object-fit: cover;
     display: block;
     border-radius: .625rem;
+    position: relative;
 }
 
+.Hero-film-platform{
+   display: block;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .5rem;
+    align-items: center;
+}
+
+
+.Hero-film-platform.Close{
+    display: none;
+ 
+}
+
+.Hero-film-platform-name {
+    color: white;
+}
+
+.Hero-film-svg {
+
+  position: static;
+    left: 5%;
+    top: 52%;
+
+}
 
 .Hero-img-wrapper {
     position: relative;
@@ -62,6 +118,7 @@ img {
 .Hero-film-info {
 
     color: white;
+    
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -75,30 +132,103 @@ img {
     transform: translateY(0);
 }
 
-
+.Hero-film-title{
+    font-size: 1.1875rem;
+}
 
 .Hero-film-platform {
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
     display: flex;
-    gap: 2px;
+    gap: .3125rem;
 }
 
 
+.Hero-film-description{
+    font-size: .9375rem;
+}
+
+
+
 .Hero-button--next {
+   opacity: 0;
     position: absolute;
-    top: 0;
+    top: 14%;
+   
     width: 4.375rem;
-    height: 18.75rem;
+    height: 9.0625rem;
     background-color: transparent;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
 }
 
 .Hero-button--prev {
+    opacity: 0;
     position: absolute;
-    top: 0;
+    
+    top: 14%;
     right: 0;
     width: 4.375rem;
-    height: 18.75rem;
+    height: 9.0625rem;
     background-color: transparent;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3), 0 8px 12px 6px rgba(0, 0, 15)
 }
+
+@media (max-width: 700px) {
+    .Hero-button {
+        display: none;
+    }
+}
+
+
+
+.Hero-floating-header {
+    display: none;
+
+    width: 31.25rem;
+    min-height: fit-content;
+    padding: 1.25rem;
+
+    position: fixed;
+    bottom: 10%;
+    left: 10%;
+    background-color: #0070f0;
+    border-radius: 1.875rem;
+}
+
+
+@media (max-width: 700px) {
+    .Hero-floating-header {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .Hero-floating-header {
+        left: 8%;
+    }
+}
+
+
+.Hero-floating-header-icons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Hero-floating-header-icon {
+    width: 10%;
+    color: white;
+    fill: white;
+}
+
+.Hero-floating-header-icon:nth-child(4) {
+    width: 18.75rem;
+}
+
+.Hero-floating-header-login-icon {
+    width: 22%;
+}
+
