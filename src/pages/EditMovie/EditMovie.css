@@ -5,47 +5,58 @@
 }
 
 input{
-    color:  #ffd814;
+    color:  black;
     background-color: white;
 }
 
+.Put-input-title{
+    background-color: yellow;
+    color: black;
+}
+
 textarea{
-    width: 722px;
-    height: 160px;
-    border-radius: 10px;
+    width: 100%;
+    height: 10rem;
+    border-radius: .625rem;
     border-color: white;
     border-width: .0313rem;
     background-color: black;
     color:  #ffd814;
+    padding: .75rem;
 }
 
 .Put-img-wrapper {
-     width: 700px;
-    margin: 40px auto;
+    width: 43.75rem;
+    margin: 2.5rem auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .Put-film-img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: .625rem;
 }
 
 .Put-film-info {
+    
     color: white;
     opacity: 1;
     visibility: visible;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.25rem;
 }
 
 .Put-film-platform {
     align-items: center;
     display: flex;
-    gap: 2px;
+    gap: .125rem;
 }
 
-button{
+.Put-button{
     width: 100%;
+    padding: .625rem;
     border-radius: .625rem;
     background-color:  #ffd814;
 }

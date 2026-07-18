@@ -55,7 +55,7 @@ export const EditMovie = () => {
 
             <div className="Put-film-info">
 
-                <input
+                <input className='Put-input-title'
                     value={movie.title}
                     onChange={(e) =>
                         setMovie({
@@ -78,7 +78,7 @@ export const EditMovie = () => {
 
             </div>
 
-            <button onClick={updateMovie} type='button'>
+            <button className='Put-button' onClick={updateMovie} type='button'>
                 Save changes
             </button>
 
