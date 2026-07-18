@@ -27,9 +27,9 @@
 
 @media (max-width: 1340px) {
     .Header {
-    display: flex;
-    flex-flow: row nowrap;
-    
+        display: flex;
+        flex-flow: row nowrap;
+
     }
 }
 
@@ -98,21 +98,21 @@
 
 @media (max-width: 1340px) {
     .Header-logo {
-     display: none;
+        display: none;
     }
 }
 
 
-.Header-logo-responsive{
+.Header-logo-responsive {
     display: none;
 }
 
 @media (max-width: 1340px) {
     .Header-logo-responsive {
-      width: 5.3125rem;
-    height: auto;
-    display: block;
-    margin-left: 3.125rem;
+        width: 5.3125rem;
+        height: auto;
+        display: block;
+        margin-left: 3.125rem;
     }
 }
 
@@ -142,7 +142,7 @@
 
 @media (max-width: 1340px) {
     .Header-nav {
-       grid-column: 2;
+        grid-column: 2;
     }
 }
 
@@ -168,6 +168,7 @@
     .Header-ul {
         display: none;
     }
+   
 }
 
 .Header-li:not(:first-child):hover .Header-a:not(.Header-a--home) {
@@ -209,17 +210,11 @@
 }
 
 
-@media (max-width: 1340px) {
-    .Header-icons {
-        
-        margin-right: 200px;
-    }
-}
 
 
 @media (max-width: 800px) {
     .Header-icons {
-       margin-right: 1.875rem;
+        margin-right: 1.875rem;
     }
 }
 
@@ -238,29 +233,66 @@
     border-radius: .625rem;
     color: white;
     text-decoration: none;
-
 }
 
+.Header-a-subscription:hover {
+    cursor: pointer;
+    filter: brightness(1.5);
+    box-shadow: 0 0 .625rem white;
+}
+
+.Header-icon {
+    
+   
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+
+      
+   
+    padding: .45rem;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all .25s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 .Header-icon:hover {
-    background-color: white;
-    border-radius: 1.875rem;
+   
+  
+    border-radius: 50%;
+    cursor: pointer;
     color: black;
     fill: black;
+
+    background-color: white;
 }
 
-.Header-icon-logo {
-    width: 10%;
+.Header-icon:nth-child(4):hover {
+   
+  
+    border-radius: 50%;
+    cursor: pointer;
+    
+    fill: black;
+    stroke: black;
 
+    background-color: white;
 }
 
 
 .Header-login-icon {
-    width: 26%;
+      width: 1.875rem;
+      margin-right: .625rem;
+    }
 
-}
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .Header-login-icon {
         display: none;
     }

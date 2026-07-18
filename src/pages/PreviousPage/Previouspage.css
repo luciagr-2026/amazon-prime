@@ -63,24 +63,28 @@
     font-size: 1.125rem;
 }
 
-.Hero-button-sub{
+.Hero-button--login {
     background-color: rgba(255, 255, 255, 0.924);
 }
 
-.Hero-button{
+
+.Hero-button--sub {
+    background-color: rgba(255, 255, 255, 0.924);
+}
+
+.Hero-button--login:hover,
+.Hero-button--sub:hover {
+    transform: scale(1.1);
+    transition: scale .5s ease;
+    cursor: pointer;
+}
+
+.Hero-button {
     width: 23.75rem;
     min-height: 3.75rem;
     border-radius: .625rem;
     font-size: 1.0625rem;
 }
-/* 
-.Hero-button:hover {
-    scale: 1.1;
-    background-color: rgba(255, 255, 255, 0.924);
-    filter: opacity(0.5);
-    transition: scale 1s ease;
-    cursor: pointer;
-} */
 
 
 .Hero-price-span {
@@ -125,25 +129,23 @@
 }
 
 .Mini-grid-button {
-    width: 18.75rem;
-    min-height: 3.125rem;
+    width: 30rem;
+
+    min-height: 3.75rem;
     border-radius: .625rem;
     border: transparent;
     font-size: 1.125rem;
+    cursor: pointer;
+    background-color: white;
     cursor: pointer;
 }
 
 
 
 .Mini-grid-button:hover {
-     width: 18.75rem;
-    min-height: 3.125rem;
-    border-radius: .625rem;
-    border: transparent;
-    font-size: 1.125rem;
-    cursor: pointer;
+
     transform: scale(1.1);
-   transition: scale .5s ease-in;
+    transition: scale .5s ease;
 }
 
 .Heromini-column--right {
@@ -156,12 +158,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: .625rem;
 
-} 
+}
 
 .Heromini-img {
     width: 90%;
     border-radius: .625rem;
-   
+
 }
 
 .Heromini-img-single {
@@ -208,39 +210,55 @@
 /* 
 Here begin the Cookies section. */
 
-.Cookies-container{
-    width: 90%;
+.Cookies-container {
+    width: 98%;
     min-height: 20vh;
-    background-color: black;
+    background-color: #0f1111;
     position: fixed;
-    left: 5%;
-    bottom: 0;
+    left: 1%;
+    bottom: 2%;
     z-index: 1;
     border-width: .0625rem;
     border-color: white;
     border-style: solid;
+    border-radius: .625rem;
+
 }
 
-.Cookies-container.isClose{
+.Cookies-container.isClose {
     display: none;
 }
 
-.Cookies-text{
-    color: rgb(168, 168, 168);
+.Cookies-text {
+    color: rgb(179, 179, 179);
     display: flex;
     flex-flow: column nowrap;
     gap: 1.25rem;
     padding: 1.25rem;
+    align-items: start;
 }
 
-.Cookies-a{
+.Cookies-description {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .625rem;
+}
+
+.Cookies-h2 {
+    color: white;
+}
+
+.Cookies-a {
     color: rgb(190, 185, 185);
 }
 
-.Cookies-links{
+.Cookies-links {
     display: flex;
-    gap: 1.25rem;
+    gap: 2.5rem;
     justify-content: center;
     text-decoration: underline;
-}
+    color: white;
 
+    font-size: 1.25rem;
+    cursor: pointer;
+}

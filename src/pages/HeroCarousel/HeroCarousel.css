@@ -185,7 +185,7 @@ img {
 .Hero-floating-header {
     display: none;
 
-    width: 31.25rem;
+    width: 37.5rem;
     min-height: fit-content;
     padding: 1.25rem;
 
@@ -197,7 +197,7 @@ img {
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .Hero-floating-header {
         display: block;
     }

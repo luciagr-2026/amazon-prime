@@ -68,8 +68,8 @@ export function Cookies() {
                             closingCookies();
                             handleReject();
                         }}
-                    >Denegar</div>
-                    <div className="Cookies-link" onClick={closingCookies} >X</div>
+                    >Rechazar</div>
+                    <div className="Cookies-link" onClick={closingCookies} > Personalizar </div>
                 </div>
             </div>
         </div>
