@@ -50,6 +50,11 @@
     transition: all .25s ease;
 }
 
+.Header-span:hover{
+    background-color: white;
+    color: black;
+}
+
 .Header-a--home {
     position: relative;
     overflow: hidden;
@@ -81,6 +86,13 @@
 .Header-a--home-active::before {
     opacity: 1;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.25) 35%, rgba(255, 255, 255, 0) 100%);
+}
+
+.Header-li:hover{
+    background-color: white;
+    color: black;
+    border-radius: .625rem;
+    padding: .625rem;
 }
 
 .Header-logo {
@@ -168,7 +180,7 @@
     .Header-ul {
         display: none;
     }
-   
+
 }
 
 .Header-li:not(:first-child):hover .Header-a:not(.Header-a--home) {
@@ -242,14 +254,14 @@
 }
 
 .Header-icon {
-    
-   
+
+
     border-radius: 50%;
     cursor: pointer;
     color: white;
 
-      
-   
+
+
     padding: .45rem;
     border-radius: 50%;
     color: white;
@@ -263,8 +275,8 @@
 }
 
 .Header-icon:hover {
-   
-  
+
+
     border-radius: 50%;
     cursor: pointer;
     color: black;
@@ -274,11 +286,11 @@
 }
 
 .Header-icon:nth-child(4):hover {
-   
-  
+
+
     border-radius: 50%;
     cursor: pointer;
-    
+
     fill: black;
     stroke: black;
 
@@ -287,9 +299,9 @@
 
 
 .Header-login-icon {
-      width: 1.875rem;
-      margin-right: .625rem;
-    }
+    width: 1.875rem;
+    margin-right: .625rem;
+}
 
 
 @media (max-width: 800px) {
@@ -297,3 +309,5 @@
         display: none;
     }
 }
+
+
